@@ -23,3 +23,13 @@ run het volgende command:
 ```
 docsify serve docs
 ```
+## Afbeeldingen toevoegen
+
+Afbeeldingen zet je in een `./assets/` folder lokaal aan het .md bestand waar je in werkt. 
+
+Een onderschrift toevoegen aan een afbeelding doe je zo:
+
+```markdown
+![Een beschrijvende alt tekst](./assets/mooie-prent.jpg 'Een onderschrift of caption')
+```
+Tussen 'quotes' achter het pad naar de afbeelding.
