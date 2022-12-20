@@ -1,0 +1,11 @@
+* [Beschrijving](./README.md)
+* [Coral Dev Boards](./coral/README.md)
+* [Beowulf Cluster](./beowulf/README.md)
+* [Mendel Linux](./mendel/README.md)
+* [Flashen & MDT](./setup/README.md)
+* [Netwerk setup en SSH](./netwerk/README.md)
+* [NFS opzetten](./nfs/README.md)
+* [Open MPI instellen](./open-mpi/README.md)
+* [TensorFlow Serving](./tf-serving/README.md)
+* [TensorFlow model draaien](./tf-models/README.md)
+

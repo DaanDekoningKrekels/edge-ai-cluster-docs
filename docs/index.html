@@ -2,21 +2,40 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Document</title>
+  <title>Edge AI - TPU Beowulf Cluster</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <meta name="description" content="Description">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
 </head>
 <body>
+  <style>
+    :root {
+      --theme-color: #ff5e4d; /* Coral kleur */
+    }
+  </style>
   <div id="app"></div>
+  <script src="//unpkg.com/docsify-edit-on-github@1/index.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
+  
   <script>
-    window.$docsify = {
-      name: '',
-      repo: ''
+      let repoUrl = "https://github.com/DaanDekoningKrekels/edge-ai-cluster-docs";
+      let editPath = repoUrl + "/blob/main/docs/";
+      let editMsg = "📝 Aanpassen op GitHub";
+  
+      window.$docsify = {
+        name: "Edge AI Cluster documentatie",
+        repo: repoUrl,
+      plugins: [
+          EditOnGithubPlugin.create(editPath, null, editMsg)
+      ],
+      loadSidebar: true,
+      auto2top: true
     }
   </script>
-  <!-- Docsify v4 -->
-  <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+  
+  
+  <script src="https://unpkg.com/@h-hg/docsify-image-caption/dist/docsify-image-caption.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-python.min.js"></script> 
 </body>
 </html>
