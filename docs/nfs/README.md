@@ -7,7 +7,7 @@ Een Network File System is een manier om meerdere machines data gemakkelijk te d
 
 --> Afbeelding NFS
 
-Er is een client-side het file systeem en een server-side file systeem. De master node zal in ons geval de server zijn en de andere nodes zijn de clients. Een client kan dan een system call doen om bijvoorbeeld files op te roepen van de server. 
+Er is een client-side file systeem en een server-side file systeem. De master node zal in ons geval de server zijn en de andere nodes zijn de clients. Een client kan dan een system call doen om bijvoorbeeld files op te roepen van de server. 
 
 Hoe zet ik een NFS server op:
  - Eerst moeten we de NFS server package installeren met volgend commando: 
