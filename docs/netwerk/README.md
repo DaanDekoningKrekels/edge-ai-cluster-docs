@@ -9,7 +9,7 @@
 
 ### Router
 
-De kern van het netwerk is een MikroTik router. Deze ziet er simpel uit, maar waar operationeel kan je alles zelf instellen. Dit geeft de kans om een netwerk op te zetten waar de cluster geïsoleerd kan zijn van de buitenwereld, maar tegelijkertijd ook verbinding heeft met het internet.   
+De kern van het netwerk is een MikroTik router. Deze ziet er simpel uit maar er kan hier operationeel veel in worden aangepast. Dit geeft de kans om een netwerk op te zetten waar de cluster geïsoleerd kan zijn van de buitenwereld, maar tegelijkertijd ook verbinding heeft met het internet.   
 
 
 #### IP adres toekennen
