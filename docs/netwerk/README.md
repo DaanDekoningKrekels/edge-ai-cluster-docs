@@ -30,7 +30,7 @@ Via het `mdt` commando is het mogelijk om lokaal over het netwerk inloggen op de
 >Dat de master kan verbinden via SSH met eender welke node, maar niet omgekeerd. Hoe dat is ingesteld.
 
 
-De master `.11` beschikt over een private sleutel waarvan de publieke sleutel aanwezig is op iedere andere node. Op deze manier kan de master zonder enige problemen wachwoordloos inloggen op eender welke node.
+De master `.11` beschikt over een private sleutel waarvan de publieke sleutel aanwezig is op iedere andere node. Op deze manier kan de master zonder enige problemen wachtwoordloos inloggen op eender welke node.
 
-Ik was hier echter in het begin best vergeetachtig waardoor er telkens 'Permission denied' errors verschenen. Dit was opgelost nadat ik van de master, `cat .ssh/id_rsa.pub` heb ge copy-paste naar `.ssh/authorized_keys` van alle nodes.
+Ik was hier echter in het begin best vergeetachtig in waardoor er telkens 'Permission denied' errors verschenen. Dit was opgelost nadat ik van de master, `cat .ssh/id_rsa.pub` heb ge copy-paste naar `.ssh/authorized_keys` van alle nodes.
 
