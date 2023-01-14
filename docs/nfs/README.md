@@ -50,6 +50,13 @@ Errors
 
 --> Screenshots
 
+
+De [NFS FAQ](https://nfs.sourceforge.net/nfs-howto/ar01s07.html#nfsd_wont_start) [1.] voorspelde al ongeveer wat het probleem was. `nfsd` is niet aanwezig in de Mendel Linux kernel.
+
+Het `motprobe` commando mocht ook niet baten want de `nfsd` module is niet aanwezig in het Mendel systeem. Dit wil zeggen dat we de `nfsd` module zelf zouden moeten compileren en toevoegen aan de kernel.
+
+![Mendel Linux Kernel NFS module](assets/linux-kernel-nfsd.png)
+
 > 1. https://nfs.sourceforge.net/nfs-howto/ar01s07.html#nfsd_wont_start
 > 2. https://nfs-ganesha.github.io/
 > 3. https://objectivefs.com/howto/how-to-set-up-nfs-ganesha
@@ -57,3 +64,108 @@ Errors
 > 5. https://github.com/nfs-ganesha/nfs-ganesha/blob/next/src/config_samples/export.txt
 > 6. https://cloudnull.io/2017/05/nfs-mount-via-systemd/
 
+### NFS Ganesha
+
+
+NFS-Ganesha is een implementatie van een NFS-server voor de user space in plaats van de kernel space. Dit maakt de implementatie flexibeler. De NFS server was al snel draaiende! Een nadeel van deze implementatie is dat het iets trager is. Dit kunnen we proberen te optimaliseren door bijvoorbeeld locking uit te schakelen. 
+
+Blij locking wordt een bestand dat door een gebruiker over het netwerk gedeeld is vastgezet wanneer er een gebruiker dit aan het bewerken is. Dit principe zorgt ervoor dat erg geen data verloren gaat wanneer twee mensen hetzelfde bestand overschrijven, maar maakt de server ook iets trager.  
+
+
+Standaard instelling:
+
+```apacheconf
+###################################################
+#
+# EXPORT
+#
+# To function, all that is required is an EXPORT
+#
+# Define the absolute minimal export
+#
+###################################################
+
+EXPORT
+{
+        # Export Id (mandatory, each EXPORT must have a unique Export_Id)
+        Export_Id = 77;
+
+        # Exported path (mandatory)
+        Path = /nonexistant;
+
+        # Pseudo Path (required for NFS v4)
+        Pseudo = /nonexistant;
+
+        # Required for access (default is None)
+        # Could use CLIENT blocks instead
+        Access_Type = RW;
+
+        # Exporting FSAL
+        FSAL {
+                Name = VFS;
+        }
+}
+```
+
+Na het commando `sudo systemctl start nfs-ganesha` was de NFS-server gestart! We konden ook de positieve status zien.
+
+<pre><font color="#8AE234"><b>●</b></font> nfs-ganesha.service - NFS-Ganesha file server
+   Loaded: loaded (/lib/systemd/system/nfs-ganesha.service; enabled; vendor preset: enabled)
+   Active: <font color="#8AE234"><b>active (running)</b></font> since Mon 2022-11-14 11:58:55 UTC; 13s ago
+     Docs: http://github.com/nfs-ganesha/nfs-ganesha/wiki
+  Process: 5457 ExecStart=/bin/bash -c ${NUMACTL} ${NUMAOPTS} /usr/bin/ganesha.nfsd ${OPTIONS} ${EPOCH} (code=exited, status=0/SUCCESS)
+  Process: 5462 ExecStartPost=/bin/bash -c prlimit --pid $MAINPID --nofile=$NOFILE:$NOFILE (code=exited, status=0/SUCCESS)
+  Process: 5463 ExecStartPost=/bin/bash -c /bin/sleep 2 &amp;&amp; /usr/bin/dbus-send --system   --dest=org.ganesha.nfsd --type=method_call /or
+ Main PID: 5458 (ganesha.nfsd)
+    Tasks: 277 (limit: 797)
+   Memory: 59.0M
+   CGroup: /system.slice/nfs-ganesha.service
+           └─5458 /usr/bin/ganesha.nfsd -L /var/log/ganesha/ganesha.log -f /etc/ganesha/ganesha.conf -N NIV_EVENT
+Nov 14 11:58:53 purple-mole systemd[1]: Starting NFS-Ganesha file server...
+Nov 14 11:58:55 purple-mole systemd[1]: Started NFS-Ganesha file server.
+root@purple-mole:~# showmount -e localhost
+Export list for localhost:
+/home/mendel/share (everyone)
+</pre>
+
+
+
+
+Momenteel ziet onze ganesha.conf er zo uit:
+
+```apacheconf
+###################################################
+#
+# EXPORT
+#
+# To function, all that is required is an EXPORT
+#
+# Define the absolute minimal export
+#
+###################################################
+
+EXPORT
+{
+	# Export Id (mandatory, each EXPORT must have a unique Export_Id)
+	Export_Id = 77;
+
+	# Exported path (mandatory)
+	Path = /home/mendel/share;
+
+	# Pseudo Path (required for NFS v4)
+	Pseudo = /home/mendel/share;
+
+	# Required for access (default is None)
+	# Could use CLIENT blocks instead
+	Access_Type = RW;
+
+	# Exporting FSAL
+	FSAL {
+		Name = VFS;
+	}
+	CLIENT
+	{
+        Clients = 192.168.88.12, 192.168.88.13, 192.168.88.14, 192.168.88.15;
+	}
+}
+```
