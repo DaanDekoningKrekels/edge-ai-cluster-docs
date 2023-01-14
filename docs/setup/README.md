@@ -2,6 +2,11 @@
 
 >Uitleg en tutorial hoe de Dev Boards te programmeren zijn en welke instellingen we zoal hadden aangepast.
 
+De documentatie zond het installeren van Mendel Linux is best uitgebreid en is [hier](https://coral.ai/docs/dev-board/get-started/) te vinden. Voor de installatie is een micro-SD-kaart nodig en een computer. Op de SD-kaart staat het Linux-systeem dat bij het opstarten met de schakelaars in de juiste positie het systeem installeert naar het interne flash geheugen. De SD-kaart kan na dit proces weggehaald worden.
+
+Om met de Dev Boards te verbinden kunnen we gebruik maken van MDT. MDT staat voor mendel-development-tool en lijkt qua werking wat op SSH. Als je je computer aansluit via USB-C met een Dev Board dan wordt er een virtueel netwerk aangemaakt waarlangs de MDT-communicatie loopt.
+
+
 ## MDT instellen
 
 >Hoe we MDT hebben ingesteld met al die sleutels enzo.

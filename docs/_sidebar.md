@@ -8,4 +8,4 @@
 * [Open MPI instellen](./open-mpi/README.md)
 * [TensorFlow Serving](./tf-serving/README.md)
 * [TensorFlow model draaien](./tf-models/README.md)
-
+* [Bronnen](./bronnen.md)
