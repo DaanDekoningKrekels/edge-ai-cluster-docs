@@ -169,3 +169,49 @@ EXPORT
 	}
 }
 ```
+
+
+
+### Automount master NFS share
+
+Tutorial is bron nr 4.
+
+`nfs-common` zeker installeren.
+
+`sudo nano /etc/systemd/system/mnt-share.mount`
+
+```apacheconf
+[Unit]
+Description=NFS share van de Master node
+After=network.target
+
+[Mount]
+What=192.168.88.11:/home/mendel/share
+Where=/mnt/share
+Type=nfs
+Options=_netdev,auto
+
+[Install]
+WantedBy=multi-user.target
+```
+
+`sudo systemctl daemon-reload`
+
+`sudo systemctl start mnt-share.mount`
+
+`sudo systemctl enable mnt-share.mount`
+
+`sudo systemctl status mnt-share.mount`
+
+<pre><font color="#8AE234"><b>mendel@purple-kid</b></font>:<font color="#729FCF"><b>~</b></font>$ sudo systemctl status mnt-share.mount
+<font color="#8AE234"><b>●</b></font> mnt-share.mount - NFS share van de Master node
+   Loaded: loaded (/etc/systemd/system/mnt-share.mount; enabled; vendor preset: enabled)
+   Active: <font color="#8AE234"><b>active (mounted)</b></font> since Mon 2022-11-14 15:49:24 UTC; 1min 58s ago
+    Where: /mnt/share
+     What: 192.168.88.11:/home/mendel/share
+    Tasks: 0 (limit: 797)
+   Memory: 416.0K
+   CGroup: /system.slice/mnt-share.mount
+Nov 14 15:49:24 purple-kid systemd[1]: Mounting NFS share van de Master node...
+Nov 14 15:49:24 purple-kid systemd[1]: Mounted NFS share van de Master node.
+</pre>
