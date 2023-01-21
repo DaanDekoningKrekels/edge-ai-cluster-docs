@@ -30,12 +30,30 @@
           EditOnGithubPlugin.create(editPath, null, editMsg)
       ],
       loadSidebar: true,
-      auto2top: true
+      subMaxLevel: 3,
+      search: 'auto', // default
+      auto2top: true,
+      pagination: {
+        previousText: 'Vorige',
+        nextText: 'Volgende',
+        crossChapter: true,
+        crossChapterText: true,
+      },
+      toc: {
+        tocMaxLevel: 5,
+        target: 'h2, h3, h4, h5, h6',
+        ignoreHeaders: ['<!-- {docsify-ignore} -->', '<!-- {docsify-ignore-all} -->']
+      },
     }
   </script>
   
   
   <script src="https://unpkg.com/@h-hg/docsify-image-caption/dist/docsify-image-caption.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-python.min.js"></script> 
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-systemd.min.js"></script> 
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-editorconfig.min.js"></script> 
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-bash.min.js"></script> 
 </body>
 </html>

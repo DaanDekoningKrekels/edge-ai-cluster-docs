@@ -55,7 +55,7 @@ De [NFS FAQ](https://nfs.sourceforge.net/nfs-howto/ar01s07.html#nfsd_wont_start)
 
 Het `motprobe` commando mocht ook niet baten want de `nfsd` module is niet aanwezig in het Mendel systeem. Dit wil zeggen dat we de `nfsd` module zelf zouden moeten compileren en toevoegen aan de kernel.
 
-![Mendel Linux Kernel NFS module](assets/linux-kernel-nfsd.png)
+![Mendel Linux Kernel NFS module](../assets/linux-kernel-nfsd.png)
 
 > 1. https://nfs.sourceforge.net/nfs-howto/ar01s07.html#nfsd_wont_start
 > 2. https://nfs-ganesha.github.io/
@@ -74,7 +74,7 @@ Blij locking wordt een bestand dat door een gebruiker over het netwerk gedeeld i
 
 Standaard instelling:
 
-```apacheconf
+```editorconfig
 ###################################################
 #
 # EXPORT
@@ -133,7 +133,7 @@ Export list for localhost:
 
 Momenteel ziet onze ganesha.conf er zo uit:
 
-```apacheconf
+```editorconfig
 ###################################################
 #
 # EXPORT
@@ -165,7 +165,7 @@ EXPORT
 	}
 	CLIENT
 	{
-        Clients = 192.168.88.12, 192.168.88.13, 192.168.88.14, 192.168.88.15;
+		Clients = 192.168.88.12, 192.168.88.13, 192.168.88.14, 192.168.88.15;
 	}
 }
 ```
@@ -180,7 +180,7 @@ Tutorial is bron nr 4.
 
 `sudo nano /etc/systemd/system/mnt-share.mount`
 
-```apacheconf
+```systemd
 [Unit]
 Description=NFS share van de Master node
 After=network.target
