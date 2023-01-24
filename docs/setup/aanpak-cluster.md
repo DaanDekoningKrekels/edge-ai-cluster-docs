@@ -1,6 +1,6 @@
 # Aanpak cluster
 
-In het algemeen zijn er twee mogelijke opties om de Coral Dev boards in te stellen voor een Beowulf cluster. Er bestaan Linux distributies die speciaal gemaakt zijn om te gebruiken in een Beowulf cluster. We kunnen deze Linux distributies compileren om te draaien op de Coral Dev boards en zo een cluster opzetten. Een andere mogelijkheid is om na te gaan welke software zoal gebruikt wordt in Beowulf clusters en deze software los installeren op Mendel Linux.
+In het algemeen zijn er twee mogelijke opties om de Coral Dev boards in te stellen voor een Beowulf cluster. Er bestaan Linux distributies die speciaal gemaakt zijn om te gebruiken in een Beowulf cluster. Deze Linux distributies kunnen gecompileerd worden om te draaien op de Coral Dev boards en zo een cluster opzetten. Een andere mogelijkheid is om na te gaan welke software zoal gebruikt wordt in Beowulf clusters en deze software los installeren op Mendel Linux.
 
 ## Cluster Linux Aanpassen
 

@@ -14,6 +14,8 @@ Bij het uitvoeren van `~/node-statuses.sh poweroff` zal op ieder node waarvan SS
 
 Na het uitvoeren van `remount` en `poweroff` zal het script alsnog controleren of de nodes beschikbaar zijn en eventueel de temperatuur en mount-status weergeven.
 
+voor de temperatuuruitlezing is de Coral documentatie [(Manage the PCIe module temperature, z.d.)](../bronnen.md#master-beheerder-script) gebruikt als referentie.
+
 ## Bash script
 
 ```bash
