@@ -1,9 +1,39 @@
-## Wat zijn Coral Dev Boards?
+# Coral Dev Board
 
->Uitleg over wat de dev boards zijn, hoe ze werken en wat ze zoal kunnen.
->Miss ook algemeen uitleg over wat TPU's zijn.
+## Wat is een Coral Dev Board?
 
-Het Coral Dev Board is een single-board computer die een Edge TPU coprocessor bevat. Het is ideaal voor het maken van prototypes voor nieuwe projecten waarbij snelle on-device inferencing voor machine learning modellen nodig is.
+Het Coral Dev Board is een *Single Board Computer*, of SBC, die een Edge TPU coprocessor bevat. Het is ideaal voor het maken van prototypes voor nieuwe projecten waarbij snelle on-device inferencing voor machine learning modellen nodig is.
 
-Een Tensor Processing Unit is een ASIC ontwikkeld door Google. Het wordt gebruikt voor machine learning applicaties zoals neurale netwerken. De chip is ontworpen om Google's eigen Tensorflow software op te laten draaien. 
-In vergelijking met een GPU is een TPU ontworpen om een hoog volume aan lageprecisie-berekeningen te verwerken met meer invoer/uitvoer bewerkingen per verbruikte eenheid energie. TPU's zijn zeer geschikt voor convolutionele neurale netwerken terwijl dat GPU's voordeel hebben bij sommige volledig verbonden neurale netwerken. 
+[![](./assets/devboard-inhand.jpg 'Fig. 1: Coral Dev Board in de hand. [1]')](./bronnen.md)
+
+[![](./assets/devboard-dimensions.jpg 'Fig. 2: Coral Dev Board dimensies. [3]')](./bronnen.md)
+
+## Architectuur
+
+Een Coral Dev Board bestaat uit twee onderdelen:
+1. Edge TPU System-on-Module (SoM)
+2. Baseboard met connectoren dat het een *Single Board Computer* maakt.
+
+Deze zijn verbonden via drie DF40C-100DP-0.4V(51) 100-pin connectoren.
+
+[![](./assets/som-connector-schematic.png 'Fig 3: SoM connector schema. [4]')](bronnen.md)
+
+### Edge TPU System-on-Module (SoM)
+
+[![](./assets/som-blockdiagram.png 'Fig 4: SoM blockdiagram. [3]')](bronnen.md)
+
+[![](./assets/som-dimensions-basic.png 'Fig 5: SoM dimensies. [3]')](bronnen.md)
+
+### Baseboard
+
+[![](./assets/diagram-baseboard_bw.png 'Fig 6: Baseboard blockdiagram. [3]')](bronnen.md)
+
+[![](./assets/devboard-dimensions-illi.png 'Fig 7: Baseboard dimensies. [3]')](bronnen.md)
+
+## Tensor Processing Unit (TPU)
+
+Een Tensor Processing Unit, of TPU, is een ASIC ontwikkeld door Google. Het wordt gebruikt voor machine learning applicaties zoals neurale netwerken. De chip is ontworpen om Google's eigen Tensorflow software op te laten draaien.
+
+In tegensteling tot een CPU die zijn berekeningen één voor één gaat uitvoeren, gaat een TPU, net zoals een GPU, gespecialiseerde berekeningen parallelliseren. Dit wilt zeggen dat meerdere berekeningen tegelijkertijd kunnen plaatsvinden. Ze zijn ontworpen om een hoog volume aan lageprecisie-berekeningen te verwerken met meer invoer/uitvoer bewerkingen per verbruikte eenheid energie. TPU's zijn zeer geschikt voor convolutionele neurale netwerken, terwijl dat GPU's voordeel hebben bij sommige volledig verbonden neurale netwerken.
+
+Het voorvoegsel *Edge* in *Edge TPU* geeft aan dat een AI model lokaal op de hardware kan draaien zonder off-loading naar de cloud.

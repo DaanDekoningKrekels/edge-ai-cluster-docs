@@ -27,8 +27,8 @@ Een Beowulf cluster bestaat niet uit strikt bepaalde onderdelen en kunnen op mee
 -	MPI of Message Passing Interface is de nieuwere standard voor portable message-passing parallel programs, gestandaardiseerd door de MPI Forum.
 -	LAM
 -	De Linux kernel
--	De channel-bonding patch voor de Linux kernel. Deze laat toe meerdere Ethernet interfaces te "binden" zodat je één snellere "virtuele" Ethernet interface bekomt.
--	De "global pid space patch" voor de Linux kernel. Deze laat toe om alle processen in de Beowulf cluster te zien met `ps` en deze ook te elimineren.
+-	De channel-bonding patch voor de Linux kernel. Deze laat toe meerdere Ethernet interfaces te *binden* zodat je één snellere *virtuele* Ethernet interface bekomt.
+-	De *global pid space patch* voor de Linux kernel. Deze laat toe om alle processen in de Beowulf cluster te zien met `ps` en deze ook te elimineren.
 -	DIPC dat toe laat om `sysv shared memory en semaphores` en message queues transparent te gebruiken over de gehele cluster.
 
 ## Werkwijze
@@ -45,14 +45,14 @@ Overweging: denk na over de stroomvoorziening. Voor single board computers zoals
 
 ### Opstelling en installatie
 
-Een cluster werkt met communicatie tussen de Nodes. Een "hoofd" node heeft de leiding over de andere "werker" nodes. De hoofd node zegt wat de werkers moeten doen en vraagt voor rapportering. Hiervoor is het beste dat de cluster zijn eigen lokale netwerk heeft (LAN) met Ethernet kabels. Zo wordt de werking niet in de weg gezeten door ander netwerk trafiek. Om met elke node afzonderlijk te verbinden kan je Wifi gebruiken met internet toegang. Zo blijft de Ethernet poort beschikbaar voor de cluster en hebben de computers internet toegang voor installatie en updates.
+Een cluster werkt met communicatie tussen de Nodes. Een *hoofd* node heeft de leiding over de andere *werker* nodes. De hoofd node zegt wat de werkers moeten doen en vraagt voor rapportering. Hiervoor is het beste dat de cluster zijn eigen lokale netwerk heeft (LAN) met Ethernet kabels. Zo wordt de werking niet in de weg gezeten door ander netwerk trafiek. Om met elke node afzonderlijk te verbinden kan je Wifi gebruiken met internet toegang. Zo blijft de Ethernet poort beschikbaar voor de cluster en hebben de computers internet toegang voor installatie en updates.
 
 1.	Installeer een Linux distributie met GCC (GNU Compiler Collection) op de computers.
-2.	Stel Wifi in voor internet verbinding (`sudo raspi-config` bij RPi).
+2.	Stel Wifi in voor internet verbinding (`sudo raspi-config` op Raspbian).
 3.	Stel de host names in als `node1`, `node2`, …
 4.	Updaten `sudo apt -y update && sudo apt -y upgrade`
 
-### De "backbone" netwerk configuratie
+### De *backbone* netwerk configuratie
 
 De Ethernet link tussen de nodes van de cluster noemt de `backbone`. Hiervoor gebruiken we het 10.0.0.0 subnet. Voor elke node afzonderlijk moet deze ingesteld worden met een statisch IP adres.
 
@@ -86,5 +86,5 @@ Zelfde op meerdere nodes: `mpiexec -n 4 --host 10.0.0.1,10.0.0.2,10.0.0.3,10.0.0
 
 Om een applicatie te draaien op meerdere nodes moet deze op elke node staan op dezelfde plaats. Dit kan zoals reeds besproken met netwerk opslag vereenvoudigd worden, maar als je dit niet hebt kan je volgend commando gebruiken: `scp ~/prime.py 10.0.0.x:` (secure copy, vervang x door de node nr)
 
-Elke node krijgt een rang of uniek ID toegewezen. De hoofd node is altijd 0.
+Elke node krijgt een rang of uniek ID toegewezen. De hoofd node is altijd `0`.
 Wanneer de resultaten binnen zijn verzameld de hoofd node alles en rapporteert de resultaten.

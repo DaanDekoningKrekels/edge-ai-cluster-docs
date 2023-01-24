@@ -1,12 +1,18 @@
 * [Beschrijving](README.md)
 
-* [Coral Dev Boards](coral/README.md)
-
 * [Beowulf Cluster](beowulf/README.md)
 
-* [Aanpak Cluster](setup/aanpak-cluster.md)
+* [Coral Dev Board](coral/README.md)
 
 * [Mendel Linux](mendel/README.md)
+
+  * [Hardware Detectie](mendel/hardware-detectie.md)
+
+  * [Device Tree Overlays](mendel/device-tree-overlays.md)
+
+  * [Debian voor Edge TPU](mendel/debian-voor-edge-tpu.md)
+
+* [Aanpak Cluster](setup/aanpak-cluster.md)
 
 * [Flashen & MDT](setup/README.md)
 
@@ -21,5 +27,7 @@
 * [TensorFlow Serving](tf-serving/README.md)
 
 * [TensorFlow model draaien](tf-models/README.md)
+
+* [Conclusie](conclusie/README.md)
 
 * [Bronnen](bronnen.md)
