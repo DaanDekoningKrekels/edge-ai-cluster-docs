@@ -14,9 +14,9 @@ Binnen Tensorflow bestaat er dus een [API](https://github.com/tensorflow/tensorf
 
 Onder "Distributed training with TensorFlow" is er een [`tf.distribute.TPUStrategy`](https://www.tensorflow.org/api_docs/python/tf/distribute/TPUStrategy) object. Dit object neemt als eerste parameter een `tpu_cluster_resolver` . Dat klinkt al veelbelovend. Wat is een [`tpu_cluster_resolver`](https://www.tensorflow.org/api_docs/python/tf/distribute/cluster_resolver/TPUClusterResolver)?
 
-` tf.distribute.cluster_resolver.TPUClusterResolver` neemt als eerste parameter `tpu`, dat kan wederom een gRPC adres zijn of een lokaal apparaat. 
+` tf.distribute.cluster_resolver.TPUClusterResolver` neemt als eerste parameter `tpu`, dat kan wederom een gRPC adres zijn of een lokaal apparaat.
 
-Hopelijk kan er met de [`tf.train.ClusterSpec`](https://www.tensorflow.org/api_docs/python/tf/train/ClusterSpec) een cluster van Edge TPU's samengesteld worden om te gebruiken in een distributed TPU Strategy. 
+Hopelijk kan er met de [`tf.train.ClusterSpec`](https://www.tensorflow.org/api_docs/python/tf/train/ClusterSpec) een cluster van Edge TPU's samengesteld worden om te gebruiken in een distributed TPU Strategy.
 
 In de eerder omschreven documentatie wordt gRPC een aantal keer vermeld. Zo een gRPC server is wat Google Cloud onder andere gebruikt om zijn Edge TPU's toegankelijk te maken over het internet. Er zal dus een gRPC server moeten opgezet worden op de Dev Board nodes.
 
@@ -73,13 +73,3 @@ train_step(input_iterator)
 ```
 
 Bovenstaande code is echter nog niet getest.
-
-
-
-## Bronnen
-
-> 1. https://www.tensorflow.org/guide/distributed_training
-> 2. https://www.tensorflow.org/api_docs/python/tf/distribute/TPUStrategy
-> 3. https://www.tensorflow.org/api_docs/python/tf/distribute/cluster_resolver/TPUClusterResolver
-> 4. https://github.com/tensorflow/serving
-> 5. http://storage.googleapis.com/tensorflow-serving-apt
