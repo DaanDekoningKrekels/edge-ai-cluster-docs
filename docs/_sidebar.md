@@ -2,9 +2,15 @@
 
 * [Beowulf Cluster](beowulf/README.md)
 
-* [Coral Dev Boards](coral/README.md)
+* [Coral Dev Board](coral/README.md)
 
 * [Mendel Linux](mendel/README.md)
+
+  * [Hardware Detectie](mendel/hardware-detectie.md)
+
+  * [Device Tree Overlays](mendel/device-tree-overlays.md)
+
+  * [Debian voor Edge TPU](mendel/debian-voor-edge-tpu.md)
 
 * [Aanpak Cluster](setup/aanpak-cluster.md)
 
