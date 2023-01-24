@@ -20,6 +20,11 @@ De MikroTik router is *dual-band*, daardoor kan er gebruik gemaakt worden van é
 
 Via het `mdt` commando is het mogelijk om lokaal over het netwerk inloggen op de nodes. Dat werkt net zoals SSH met volgend commando: `mdt shell 192.168.88.xx`
 
+In de interface van de netwerk instellingen kunnen er verschillende zaken worden aangepast. Een belangrijk punt is het SSID. Dit is de naam die het netwerk zal krijgen. In dit geval is dit "TPU-Friends".
+
+![image](https://user-images.githubusercontent.com/93762886/214342443-b6422198-0583-4959-ba76-d9ae7e7878f8.png)
+
+
 
 ## SSH verbinding vanaf master
 
