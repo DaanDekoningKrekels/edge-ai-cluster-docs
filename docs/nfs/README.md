@@ -7,22 +7,22 @@ Een Network File System is een manier om meerdere machines data gemakkelijk te d
 
 --> Afbeelding NFS
 
-Er is een client-side file systeem en een server-side file systeem. De master node zal in ons geval de server zijn en de andere nodes zijn de clients. Een client kan dan een system call doen om bijvoorbeeld files op te roepen van de server. 
+Er is een client-side file systeem en een server-side file systeem. De master node zal in dit geval de server zijn en de andere nodes zijn de clients. Een client kan dan een system call doen om bijvoorbeeld files op te roepen van de server. 
 
 Hoe zet ik een NFS server op:
- - Eerst moeten we de NFS server package installeren met volgend commando: 
+ - Eerst moeten de NFS server package geïnstalleerd worden met volgend commando: 
  ``` bash 
  sudo apt install nfs-kernel-server
  ```
- - Daarna zorgen we ervoor dat de NFS service runt en automatisch opstart bij het starten van de node.
+ - Daarna moet de NFS service draaien en automatisch opstarten bij het starten van de node.
  ``` bash 
  sudo systemctl enable --now nfs-server
  ```
- - Hebben we nog geen directory aangemaakt waaruit we de files willen delen dan maken we die even aan
+ - Maak een directory aan waarvan bestanden gedeel zullen worden. 
  ``` bash 
  sudo mkdir -p /media/nfs
  ```
-- We passen de /etc/exports file aan. Hierin kunenn we beslissen welke directories we willen delen en we hier toegang tot heeft. Indien gewenst kan men ook een limiet instellen op het aantal keer men kan delen. 
+- Aanpassen van de `/etc/exports` file. Hierin kan beslist worden welke directories gedeeld worden en wie hier toegang tot heeft. Indien gewenst kan men ook een limiet instellen op het aantal keer men kan delen. 
 ``` bash 
  sudo nano /etc/exports
  ```
@@ -33,7 +33,7 @@ Hoe zet ik een NFS server op:
 - Enkele regels die men kan instellen
 --> Afbeelding
 
-- We slagen de file op en executen dit om er voor te zorgen dat de aanpassingen zijn opgeslagen. 
+- Bestand opslaan op en executen dit om er voor te zorgen dat de aanpassingen zijn opgeslagen. 
 --> Afbeelding 
 
 Hoe connecteer ik met de NFS server vanaf mijn client
@@ -53,7 +53,7 @@ Errors
 
 De [NFS FAQ](https://nfs.sourceforge.net/nfs-howto/ar01s07.html#nfsd_wont_start) [1.] voorspelde al ongeveer wat het probleem was. `nfsd` is niet aanwezig in de Mendel Linux kernel.
 
-Het `motprobe` commando mocht ook niet baten want de `nfsd` module is niet aanwezig in het Mendel systeem. Dit wil zeggen dat we de `nfsd` module zelf zouden moeten compileren en toevoegen aan de kernel.
+Het `motprobe` commando mocht ook niet baten want de `nfsd` module is niet aanwezig in het Mendel systeem. Dit wil zeggen dat de `nfsd` module zelf gecompileerd en toegevoegd moet worden aan de kernel.
 
 ![Mendel Linux Kernel NFS module](../assets/linux-kernel-nfsd.png)
 
@@ -67,10 +67,11 @@ Het `motprobe` commando mocht ook niet baten want de `nfsd` module is niet aanwe
 ### NFS Ganesha
 
 
-NFS-Ganesha is een implementatie van een NFS-server voor de user space in plaats van de kernel space. Dit maakt de implementatie flexibeler. De NFS server was al snel draaiende! Een nadeel van deze implementatie is dat het iets trager is. Dit kunnen we proberen te optimaliseren door bijvoorbeeld locking uit te schakelen. 
+NFS-Ganesha [(User Space NFS and 9P File Server, z.d.)](../bronnen.md#nfs-setup) is een implementatie van een NFS-server voor de user space in plaats van de kernel space. Dit maakt de implementatie flexibeler. De NFS server was al snel draaiende! Een nadeel van deze implementatie is dat het iets trager is. Er kan getracht worden dit te optimaliseren door bijvoorbeeld locking uit te schakelen. 
 
 Blij locking wordt een bestand dat door een gebruiker over het netwerk gedeeld is vastgezet wanneer er een gebruiker dit aan het bewerken is. Dit principe zorgt ervoor dat erg geen data verloren gaat wanneer twee mensen hetzelfde bestand overschrijven, maar maakt de server ook iets trager.  
 
+Bij het instellen van de NFS Ganesha server zijn de stappen van ObjectiveFS [(How To Set Up NFS Ganesha | ObjectiveFS, z.d.)](../bronnen.md#nfs-setup) gevolgd.
 
 Standaard instelling:
 
@@ -107,7 +108,7 @@ EXPORT
 }
 ```
 
-Na het commando `sudo systemctl start nfs-ganesha` was de NFS-server gestart! We konden ook de positieve status zien.
+Na het commando `sudo systemctl start nfs-ganesha` was de NFS-server gestart! De positieve status is te zien.
 
 <pre><font color="#8AE234"><b>●</b></font> nfs-ganesha.service - NFS-Ganesha file server
    Loaded: loaded (/lib/systemd/system/nfs-ganesha.service; enabled; vendor preset: enabled)
@@ -131,7 +132,9 @@ Export list for localhost:
 
 
 
-Momenteel ziet onze ganesha.conf er zo uit:
+Momenteel ziet de ganesha.conf er zo uit:
+
+Dit is gebaseerd op de [Sample export config van de NFS Ganesha GitHub](../bronnen.md#nfs-setup).
 
 ```editorconfig
 ###################################################
@@ -174,7 +177,7 @@ EXPORT
 
 ### Automount master NFS share
 
-Tutorial is bron nr 4.
+Meer informatie is te vinden in het [artikel van Carter (2017) [bron 4]](../bronnen.md#nfs-setup).
 
 `nfs-common` zeker installeren.
 

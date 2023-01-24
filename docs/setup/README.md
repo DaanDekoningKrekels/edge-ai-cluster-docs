@@ -11,7 +11,7 @@ Via het commando `nmtui` kunnen de WiFi instellingen juist ingesteld worden. Via
 ![nmtui instellingen](../assets/wifi-juist.png '`nmtui` instellingen')
 
 
-Om met de Dev Boards te verbinden kunnen we gebruik maken van MDT. MDT staat voor mendel-development-tool en lijkt qua werking wat op SSH. Als je je computer aansluit via USB-C met een Dev Board dan wordt er een virtueel netwerk aangemaakt waarlangs de MDT-communicatie loopt.
+Om met de Dev Boards te verbinden kan er gebruik gemaakt worden van MDT. MDT staat voor mendel-development-tool en lijkt qua werking wat op SSH. Als je je computer aansluit via USB-C met een Dev Board dan wordt er een virtueel netwerk aangemaakt waarlangs de MDT-communicatie loopt.
 
 
 ## MDT instellen

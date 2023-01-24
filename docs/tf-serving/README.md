@@ -6,7 +6,7 @@
 
 In de Python documentatie van Tensorflow is een passage genaamd [`TPUClusterResolver`](https://docs.w3cub.com/tensorflow~2.4/distribute/cluster_resolver/tpuclusterresolver.html). Dat klinkt interessant! De parameter `tpu` stelt het volgende voor: "A string corresponding to the TPU to use. It can be the TPU name or TPU worker gRPC address."
 
-[gRPC](https://grpc.io/) klinkt als iets wat we nodig hebben!
+[gRPC](https://grpc.io/) klinkt als iets nuttig!
 
 > gRPC is a modern open source high performance Remote Procedure Call (RPC) framework that can run in any environment. It can efficiently connect services in and across data centers with pluggable support for load balancing, tracing, health checking and authentication. It is also applicable in last mile of distributed computing to connect devices, mobile applications and browsers to backend services.
 
@@ -76,10 +76,3 @@ Bovenstaande code is echter nog niet getest.
 
 
 
-## Bronnen
-
-> 1. https://www.tensorflow.org/guide/distributed_training
-> 2. https://www.tensorflow.org/api_docs/python/tf/distribute/TPUStrategy
-> 3. https://www.tensorflow.org/api_docs/python/tf/distribute/cluster_resolver/TPUClusterResolver
-> 4. https://github.com/tensorflow/serving
-> 5. http://storage.googleapis.com/tensorflow-serving-apt
