@@ -52,7 +52,11 @@ Hoe connecteer ik met de NFS server vanaf mijn client
 
 Errors 
 
---> Screenshots
+![image](https://user-images.githubusercontent.com/93762886/214346700-6bf9c08b-3340-4ec3-b92f-49a7576e9149.png)
+
+![image](https://user-images.githubusercontent.com/93762886/214346732-98ef0944-a848-43c3-9753-d5b369cea358.png)
+
+![image](https://user-images.githubusercontent.com/93762886/214346758-cc84b0e7-cb8b-4b7b-803d-fd318cfc419a.png)
 
 
 De [NFS FAQ](https://nfs.sourceforge.net/nfs-howto/ar01s07.html#nfsd_wont_start) [1.] voorspelde al ongeveer wat het probleem was. `nfsd` is niet aanwezig in de Mendel Linux kernel.
