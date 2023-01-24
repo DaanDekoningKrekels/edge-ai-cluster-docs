@@ -30,11 +30,20 @@ Bij de DHCP server kan men zien welke apparaten er zijn verbonden met het netwer
 
 ![image](https://user-images.githubusercontent.com/93762886/214343583-b2bcbb58-d19f-4235-b1fc-da430d2becda.png)
 
+Om de ssh te kunnen enablen moet men er voor zorgen dat deze enabled is. Omdat men nog niet met de wifi is verbonden kan men geen nieuwe packages installeren. Er is hiervoor gekozen om de 5GHz te kiezen om met het internet te verbinden. Op deze manier kan de gebruiker nog steeds met de router verbinden via de 2.4GHz. 
+
+![image](https://user-images.githubusercontent.com/93762886/214344223-40ef61a6-563f-414e-8326-e8628026265f.png)
 
 
 ## SSH verbinding vanaf master
 
->Dat de master kan verbinden via SSH met eender welke node, maar niet omgekeerd. Hoe dat is ingesteld.
+Bij het opstellen van de infrastructuur werd er gemerkt dat de eerste ethernet poort van de router niet werkt. 
+
+![image](https://user-images.githubusercontent.com/93762886/214343965-a59efc2f-e85d-4fad-a3ce-bd438aa47021.png)
+
+Wanneer er bij de bridge werd gekeken kon men zien dat ether1 er niet bij stond ondanks dat deze was verbonden. Door ether1 hier dan aan toe te voegen kon men verbinding maken. 
+
+![image](https://user-images.githubusercontent.com/93762886/214344057-f4b4674f-d14b-443d-a4c6-a9f6beb4b47a.png)
 
 
 De master `.11` beschikt over een private sleutel waarvan de publieke sleutel aanwezig is op iedere andere node. Op deze manier kan de master zonder enige problemen wachtwoordloos inloggen op eender welke node.
