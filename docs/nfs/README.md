@@ -5,7 +5,7 @@
 
 Een Network File System is een manier om meerdere machines data gemakkelijk te delen met elkaar. Er is een centrale administratie voorzien. 
 
---> Afbeelding NFS
+![image](https://user-images.githubusercontent.com/93762886/214344959-fca3d278-8680-46f0-b199-427f17bb2240.png)
 
 Er is een client-side file systeem en een server-side file systeem. De master node zal in dit geval de server zijn en de andere nodes zijn de clients. Een client kan dan een system call doen om bijvoorbeeld files op te roepen van de server. 
 
