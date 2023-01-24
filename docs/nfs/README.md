@@ -31,7 +31,8 @@ Hoe zet ik een NFS server op:
  /media/nfs             192.168.1.1/24(rw,sync,no_subtree_check)
  ```
 - Enkele regels die men kan instellen
---> Afbeelding
+
+![image](https://user-images.githubusercontent.com/93762886/214346156-8e20984e-7de0-49b4-8592-500a65a19074.png)
 
 - Bestand opslaan op en executen dit om er voor te zorgen dat de aanpassingen zijn opgeslagen. 
 ``` bash 
