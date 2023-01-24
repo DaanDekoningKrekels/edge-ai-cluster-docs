@@ -12,7 +12,7 @@ Eerst en vooral moet de master node weten welke andere TPU's er beschikbaar zijn
 
 ![image](https://user-images.githubusercontent.com/93762886/214376031-180896f0-e437-47cf-a569-2439c7b59329.png)
 
-Bovenstaande code toont al de andere TPU's indien deze gelinkt zijn aan de master via USB of PCI. Dit is ook te zien in onderstaande afbeelding die afkomstig is van de Omdat dit in dit project niet het geval is moet er gezocht worden naar een andere manier om al de TPU's te kunnen vinden. 
+Bovenstaande code toont al de andere TPU's indien deze gelinkt zijn aan de master via USB of PCI. Dit is ook te zien in onderstaande afbeelding die afkomstig is van de Coral website. Omdat dit in dit project niet het geval is moet er gezocht worden naar een andere manier om al de TPU's te kunnen vinden. 
 
 
 ![image](https://user-images.githubusercontent.com/93762886/214379325-fc20026c-2761-49a9-97b7-fa01eea2135b.png)
