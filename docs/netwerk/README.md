@@ -24,6 +24,12 @@ In de interface van de netwerk instellingen kunnen er verschillende zaken worden
 
 ![image](https://user-images.githubusercontent.com/93762886/214342443-b6422198-0583-4959-ba76-d9ae7e7878f8.png)
 
+Bij de DHCP server kan men zien welke apparaten er zijn verbonden met het netwerk van de router. Hier ziet men onder andere het MAC adres en het IP adres van het apparaat. Door de naam te weten te komen van het apparaat kon men het IP adres aanpassen. Zo krijgen al de nodes hun eigen IP adres dat statisch is gemaakt zodat zij telkens weer hetzelfde IP adres kregen toegewezen. 
+
+![image](https://user-images.githubusercontent.com/93762886/214343028-b260ea21-f09b-4d4d-9c25-608c30bacace.png)
+
+![image](https://user-images.githubusercontent.com/93762886/214343583-b2bcbb58-d19f-4235-b1fc-da430d2becda.png)
+
 
 
 ## SSH verbinding vanaf master
