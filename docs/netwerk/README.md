@@ -34,6 +34,16 @@ Om de ssh te kunnen enablen moet men er voor zorgen dat deze enabled is. Omdat m
 
 ![image](https://user-images.githubusercontent.com/93762886/214344223-40ef61a6-563f-414e-8326-e8628026265f.png)
 
+![image](https://user-images.githubusercontent.com/93762886/214344347-5773882d-7c53-4e47-8195-450d14c173d7.png)
+
+![image](https://user-images.githubusercontent.com/93762886/214344391-175b1fa4-339b-49d2-933b-a5de79f728ef.png)
+
+![image](https://user-images.githubusercontent.com/93762886/214344423-bc0ccf30-d842-42fc-9fdd-46a39560b171.png)
+
+Door de stappen uit te voeren werd er ontdekt dat de ethernet poort 1 als verbinding met de wifi werd ingesteld. Dit is de reden waarom er hier in het begin niet mee kon worden verbonden. 
+
+![image](https://user-images.githubusercontent.com/93762886/214344565-85baa94c-43c1-4176-b8be-1661583aacb6.png)
+
 
 ## SSH verbinding vanaf master
 
