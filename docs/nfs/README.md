@@ -34,7 +34,10 @@ Hoe zet ik een NFS server op:
 --> Afbeelding
 
 - Bestand opslaan op en executen dit om er voor te zorgen dat de aanpassingen zijn opgeslagen. 
---> Afbeelding 
+``` bash 
+ sudo exportfs -arv
+ exporting 192.168.1.0/24:/media/nfs
+ ```
 
 Hoe connecteer ik met de NFS server vanaf mijn client
 - De NFS packages worden geïnstalleerd
