@@ -8,3 +8,16 @@ Om een python model te kunnen draaien op een Coral Dev Board moet deze worden ge
 
 Door bovenstaande stappen uit te voeren kan men een model laten draaien op één TPU. Om dit te kunnen verspreiden over verschillende TPU's moet men nog andere stappen uitvoeren. 
  
+Eerst en vooral moet de master node weten welke andere TPU's er beschikbaar zijn. Dit kan men te weten komen door volgende code uit te voeren.  
+
+![image](https://user-images.githubusercontent.com/93762886/214376031-180896f0-e437-47cf-a569-2439c7b59329.png)
+
+Bovenstaande code toont al de andere TPU's indien deze gelinkt zijn aan de master via USB of PCI. Omdat dit in dit project niet het geval is moet er gezocht worden naar een andere manier om al de TPU's te kunnen vinden. 
+
+Met onderstaande code kan er gezien worden waar de TPU zich bevindt. 
+
+```bash
+ls /dev | grep apex
+apex_0
+```
+
