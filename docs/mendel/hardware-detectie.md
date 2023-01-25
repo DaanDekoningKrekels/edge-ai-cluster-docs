@@ -6,9 +6,9 @@ Er bestaat reeds een bibliotheek, ontwikkeld door het Coral team, om een TensorF
 
 > “An example showing how to pipeline a model across multiple Edge TPUs, allowing you to significantly increase throughput for large models such as Inception.”
 
-*Aanhaling uit [[7]](bronnen.md)*
+*Aanhaling uit [[7]](bronnen.md#mendel-linux)*
 
-Deze bibliotheek bestaat zowel in Python [[8]](bronnen.md) als in C++ [[9]](bronnen.md). Om te weten te komen hoe deze eventueel in dit project kunnen gebruikt worden moet er opzoek gegaan worden hoe deze code de Edge TPU detecteerd en ermee communiceert.
+Deze bibliotheek bestaat zowel in Python [[8]](bronnen.md#mendel-linux) als in C++ [[9]](bronnen.md#mendel-linux). Om te weten te komen hoe deze eventueel in dit project kunnen gebruikt worden moet er opzoek gegaan worden hoe deze code de Edge TPU detecteerd en ermee communiceert.
 Onderstaande code uit de *pycoral* bibliotheek toont ons hoe dit in zijn werk gaat.
 
 ```Python
@@ -29,7 +29,7 @@ def _get_devices(num_devices):
   edge_tpus = list_edge_tpus()
 ```
 
-*Bovenstaande code uit: pycoral/examples/model_pipelining_classify_image.py [[10]](bronnen.md)*
+*Bovenstaande code uit: pycoral/examples/model_pipelining_classify_image.py [[10]](bronnen.md#mendel-linux)*
 
 ```Python
 from pycoral.utils.edgetpu import list_edge_tpus
@@ -39,7 +39,7 @@ from pycoral.utils.edgetpu import list_edge_tpus
 from pycoral.pybind._pywrap_coral import ListEdgeTpus as list_edge_tpus
 ```
 
-*Bovenstaande code uit: pycoral/pycoral/utils/edgetpu.py [[11]](bronnen.md)*
+*Bovenstaande code uit: pycoral/pycoral/utils/edgetpu.py [[11]](bronnen.md#mendel-linux)*
 
 ```c++
 m.def(
@@ -67,7 +67,7 @@ m.def(
     )pbdoc");
 ```
 
-*Bovenstaande code uit: google-coral/pycoral/src/coral_wrapper.cc [[12]](bronnen.md)*
+*Bovenstaande code uit: google-coral/pycoral/src/coral_wrapper.cc [[12]](bronnen.md#mendel-linux)*
 
 ```c
 class EDGETPU_EXPORT EdgeTpuManager {
@@ -157,7 +157,7 @@ class EDGETPU_EXPORT EdgeTpuManager {
   // nullptr in case of error.
 ```
 
-*Bovenstaande code uit: google-coral/edgetpu/libedgetpu/edgetpu.h [[13]](bronnen.md)*
+*Bovenstaande code uit: google-coral/edgetpu/libedgetpu/edgetpu.h [[13]](bronnen.md#mendel-linux)*
 
 ```c
 // This header defines C API to provide edge TPU support for TensorFlow Lite
@@ -228,7 +228,7 @@ class EDGETPU_EXPORT EdgeTpuManager {
       const DeviceOptions& options) = 0;
 ```
 
-*Bovenstaande code uit: google-coral/edgetpu/libedgetpu/edgetpu_c.h [[14]](bronnen.md)*
+*Bovenstaande code uit: google-coral/edgetpu/libedgetpu/edgetpu_c.h [[14]](bronnen.md#mendel-linux)*
 
 Bij het runnen van de `coral_wrapper` voor de detectie van TPU's krijg je voor de enige gevonden `edgetpu_device`, met de structuur dat hierboven is gedefinieerd:
 
@@ -297,7 +297,7 @@ inline std::shared_ptr<edgetpu::EdgeTpuContext> GetEdgeTpuContextOrDie(
 }
 ```
 
-*Bovenstaande code uit: google-coral/libcoral/coral/tflite_utils.h [[15]](bronnen.md)*
+*Bovenstaande code uit: google-coral/libcoral/coral/tflite_utils.h [[15]](bronnen.md#mendel-linux)*
 
 #### Conclusie omtrent bestaande *Model Pipelining* bibliotheek
 
@@ -319,7 +319,7 @@ Er bestaan een hele hoop packages om hardware op te lijsten:
 
 ### lshw
 
-*Uit [[17]](bronnen.md)*
+*Uit [[17]](bronnen.md#mendel-linux)*
 
 #### Installatie
 
@@ -420,7 +420,7 @@ Het is uit deze lijst niet af te leiden, maar uit verder onderzoek is gebleken d
 
 ### inxi
 
-*Uit [[18]](bronnen.md) en [[19]](bronnen.md)*
+*Uit [[18]](bronnen.md#mendel-linux) en [[19]](bronnen.md#mendel-linux)*
 
 #### Installatie
 
@@ -628,7 +628,7 @@ Weer wordt de `edgetpu-audio-card` wel geïdentificeerd, maar de TPU zelf niet. 
 
 ### lspci
 
-Hiermee kunnen we specifiek PCI informatie oplijsten [[20]](bronnen.md).
+Hiermee kunnen we specifiek PCI informatie oplijsten [[20]](bronnen.md#mendel-linux).
 
 #### Uitvoering
 
@@ -642,13 +642,13 @@ mendel@wishful-dog:/$ lspci
 
 #### Conclusie
 
-Deze `0001:01:00.0 System peripheral: Device 1ac1:089a` is de TPU. Het adres komt voor in de *M.2 or Mini PCIe Accelerator* documentatie van Coral zelf [[21]](bronnen.md). Hieruit kan dus afgeleid worden dat de Coral Dev Board dezelfde Edge TPU hardware bevat als aanwezig op deze *accelerators*.
+Deze `0001:01:00.0 System peripheral: Device 1ac1:089a` is de TPU. Het adres komt voor in de *M.2 or Mini PCIe Accelerator* documentatie van Coral zelf [[21]](bronnen.md#mendel-linux). Hieruit kan dus afgeleid worden dat de Coral Dev Board dezelfde Edge TPU hardware bevat als aanwezig op deze *accelerators*.
 
 > "The `03` (hier 0001:01:00.0) number and `System peripheral` name might be different, because those are host-system specific, but as long as you see a device listed with `089a` then you're okay to proceed."
 
 TPU's worden in de Coral code, zoals gezien in de vorige sectie, gedetecteerd via USB of PCI, dus dit is uiteraard de plaats waar ze te vinden zijn.
 
-> Each PCI peripheral is identified by a *bus* number, a *device* number, and a *function* number [[22]](bronnen.md).
+> Each PCI peripheral is identified by a *bus* number, a *device* number, and a *function* number [[22]](bronnen.md#mendel-linux).
 
 Een meer gericht commando om de TPU te vinden uit deze documentatie is `lspci -nn | grep 089a`
 
@@ -684,7 +684,7 @@ De laatste genaamd `apex` is hier dus de TPU.
 
 #### /sys/bus/pci
 
-*Uit [[23]](bronnen.md)*
+*Uit [[23]](bronnen.md#mendel-linux)*
 
 De TPU kan nu ook worden teruggevonden in `/sys/bus/pci/devices/0001:01:00.0`. Dit zou een mogelijkse weg kunnen zijn om de TPU te detecteren.
 

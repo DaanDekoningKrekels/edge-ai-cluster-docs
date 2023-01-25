@@ -12,26 +12,28 @@ Het tweede doel is het kunnen detecteren en delen van de onderlinge Edge TPU's i
 
 Mendel is een *lightweight derivative*, of verlichte aftakking  van de upstream Debian 10 (buster) Linux distributie. Deze gebruikt nog wel de upstream Debian binary packages om compatibiliteit te behouden en up to date te blijven met security patches. De wijzigingen zijn voornamelijk om de specifieke hardware van de Coral Dev Board te kunnen ondersteunen en AI toepassingen te kunnen draaien. Verdere wijzigingen zijn vooral omissies uit Debian die niet van toepassing zijn voor embedded systems als de Coral Dev Board.
 
+[![](./assets/debianhero.jpg 'Fig. 1: Debian logo. [37]')](./bronnen.md#mendel-linux#mendel-linux)
+
 > “To support Coral‘s hardware, we needed to build a version of Debian that produced initial bootable eMMC images and supported our specific peripherals.”
 
 > “We generally discourage [building your own image from our tooling for one of our boards], as we put a great deal of effort into making sure our releases run well on the boards we target. Mendel is a proper Linux distribution: we work with packages, not images, and any image should be possible to upgrade to the latest release with a simple apt-get dist-upgrade without requiring a reboot (modulo kernel and bootloader updates, obviously, which require reflashing the board).”
 
 > “Note that our distribution does not include everything from Debian; for example, Mendel does not include desktop environments and applications, because our system is designed for embedded systems. Also, the new SecureBoot and AppArmor changes do not apply to Mendel.”
 
-*Aanhalingen uit [[1]](bronnen.md)*
+*Aanhalingen uit [[1]](bronnen.md#mendel-linux)*
 
 ### Broncode
 
 De broncode voor Mendel Linux is beschikbaar op Google Git (enkel toegankelijk in Linux).
 De repository is groot, maar het biedt wel een goed inzicht in wat er allemaal aanwezig is in Mendel Linux. `7810 directories, 91531 files`
 
-*Broncode [[2]](.bronnen.md)*
+*Broncode [[2]](bronnen.md#mendel-linux)*
 
 ### Mendel release notes
 
 Hieronder is een opsomming van de belangrijkste update voor dit project.
 
-De volledige release notes kunnen worden teruggevonden in de [Coral documentatie](https://coral.googlesource.com/docs/+/refs/heads/master/Releases.md) [[3]](bronnen.md).
+De volledige release notes kunnen worden teruggevonden in de [Coral documentatie](https://coral.googlesource.com/docs/+/refs/heads/master/Releases.md) [[3]](bronnen.md#mendel-linux).
 
 #### 1.0 (alpha) - First Mendel release!
 
@@ -95,17 +97,17 @@ Hierin bevind zich ook het script en woordenlijsten die de automatische naam toe
 > Description: Defines the files and packages for a minimal Mendel install. This package contains the initial "run once" scripts that perform initial startup work such as resizing the root filesystem to match the emmc size, adding in known users, enabling services that users will likely want by default, and other housekeeping behaviors (such as forcing a regeneration of ssh host keys).
 > This package actually contains the runonce scripts that do the above. Like the runonce package, removing this one should have little effect on a running system that has executed those scripts already.
 
-*Aanhaling uit [[4]](bronnen.md)*
+*Aanhaling uit [[4]](bronnen.md#mendel-linux#mendel-linux)*
 
 ### Release Manifest om een Mendel Image te builden
 
-Om zelf een Mendel image te maken moeten verschillende repositories van Google Coral gecombineerd worden. Hiervoor is een manifest nodig die [hier in de coral/releases](https://coral.googlesource.com/releases/+/refs/heads/master) [[5]](bronnen.md) gevonden kan worden.
+Om zelf een Mendel image te maken moeten verschillende repositories van Google Coral gecombineerd worden. Hiervoor is een manifest nodig die [hier in de coral/releases](https://coral.googlesource.com/releases/+/refs/heads/master) [[5]](bronnen.md#mendel-linux) gevonden kan worden.
 
 Volgend manifest is voor de *enterprise* Mendel 5.3 (eagle) release. Dit geeft al een idee van wat er juist allemaal in zit. *Enterprise* is hier de codenaam van de Coral Dev Board.
 
 > In general, each XML file in the manifest refers to each board configuration that Mendel supports, and each is named by the board's codename. The most common is the Coral EdgeTPU Dev Board, or “enterprise”, which is denoted by the `enterprise.xml` file.
 
-*Aanhaling en onderstaande code uit [[6]](bronnen.md)*
+*Aanhaling en onderstaande code uit [[6]](bronnen.md#mendel-linux#mendel-linux)*
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
