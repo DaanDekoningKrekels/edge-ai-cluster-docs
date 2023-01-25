@@ -35,6 +35,8 @@
 
 8. Accelerator Module datasheet. (z.d.). Coral. https://coral.ai/docs/module/datasheet/
 
+9. MIMX8MQ6DVA foto. (2018, 12 juli). Zhuhai MYZR Technology Co., Ltd. http://ht.myzr-tech.net/news/myzr-i-mx8m-som-is-comming-leading-the-new-er-16574992.html
+
 ## Mendel Linux
 
 1. What is Mendel Linux? (z.d.). https://coral.googlesource.com/docs/+/refs/heads/master/ReadMe.md
@@ -105,6 +107,8 @@
 
 36. Get started with the M.2 or Mini PCIe Accelerator. (z.d.-b). Coral. https://coral.ai/docs/m2/get-started/
 
+37. Debian. (2021, 15 september). Debian logo. TechRepublic. https://www.techrepublic.com/article/debian-11-moving-forward-while-standing-still/
+
 ## Netwerk setup
 
 1. hAP ac lite - User manuals - MikroTik Documentation. (z.d.). https://help.mikrotik.com/docs/display/UM/hAP+ac+lite
@@ -138,6 +142,14 @@
 4. Tensorflow/serving: A flexible, high-performance serving system for machine learning models. (z.d.). GitHub. https://github.com/tensorflow/serving
 
 5. Google Developers. (z.d.). tensorflow-serving-apt. storage.googleapis.com. http://storage.googleapis.com/tensorflow-serving-apt
+
+6. Install and Run Docker on Google Coral Dev Board · Issue #32 · f0cal/google-coral. (z.d.). GitHub. https://github.com/f0cal/google-coral/issues/32
+
+7. Install Docker Engine from binaries. (2023, 24 januari). Docker Documentation. https://docs.docker.com/engine/install/binaries/
+
+8. Docker Engine post-installation steps. (2023, 24 januari). Docker Documentation. https://docs.docker.com/engine/install/linux-postinstall/
+
+9. serving/docker.md at master · tensorflow/serving. (z.d.). GitHub. https://github.com/tensorflow/serving/blob/master/tensorflow_serving/g3doc/docker.md
 
 ## OpenMP/OpenMPI/MPICH
 

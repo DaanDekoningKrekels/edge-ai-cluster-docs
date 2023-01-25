@@ -30,6 +30,8 @@
 
   * [TensorFlow Serving](tf-serving/README.md)
 
+  * [Docker](tf-serving/docker.md)
+
 * [Conclusie](conclusie/README.md)
 
 * [Bronnen](bronnen.md)
