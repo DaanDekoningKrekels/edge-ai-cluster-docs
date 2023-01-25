@@ -26,7 +26,7 @@ Beide bibliotheken implementeren dus verschillende normen voor parallel computin
 
 MPICH wordt ook beschouwd als een van de populairste implementaties van de MPI-standaard. Hier wordt ook de MPI en de MPI libraties gebruikt voor distributed-memory applicaties aan te sturen. MPICH heeft al aantal voorgaande versies namelijk MPICH1,MPICH2 en MPICH3. MPICH1 implementeerde MPI-1 standaard. MPICH2 bevatte aantal nieuwe mogelijkheden voor communicatie, dynamische processen, uitgebreide MPI-IO functionaliteiten enzovoort. MPICH3 is momenteel de laatste versie van de MPI standaard en heeft aantal nieuwe functies bijgekregen.
 
-OpenMPI en MPICH werd geïnstalleerd bij alle bordjes maar enkel de MPICH werkte goed bij de Edge TPU’s. Hieronder worden de verschillende stappen beschreven die bij de installatie van de openMPI en MPICH.
+OpenMPI en MPICH werd geïnstalleerd bij alle bordjes maar enkel de MPICH werkte goed bij de Edge TPU’s. Hieronder worden de verschillende stappen beschreven die bij de installatie van de openMPI en MPICH. Deze moet op alle hosts geïnstalleerd worden.
 
 Eerst werd er geprobeerd om OpenMPI te installeren hieronder worden de genomen stappen beschreven.
 
@@ -188,4 +188,4 @@ mpiexec -n 2 -H 192.168.88.11,192.168.88.12,192.168.88.13,192.168.88.14,192.168.
 
 # Problemen
 
-De MPICH kon de programma’s op de andere nodes starten, maar het programma werd niet verdeeld tussen de verschillende nodes en voerde gewoon de volledige programma uit. De programma’s die getest werden, hebben gebruik gemaakt van de CPU en niet van TPU. Dit betekent dat er nog verder een manier gezocht moet om met de programma’s de TPU van de Coral Dev board aan te spreken. Dit moest nog veder afgewerkt worden, maar wegens tijdsgebrek was het niet meer mogelijk. 
+De MPICH kon de programma’s op de andere nodes starten, maar het programma werd niet verdeeld tussen de verschillende nodes en voerde gewoon de volledige programma uit. De programma’s die getest werden, hebben gebruik gemaakt van de CPU en niet van TPU. Dit betekent dat er nog verder een manier gezocht moet om met de programma’s de TPU van de Coral Dev board aan te spreken. Ook moest er nog getest worden dat de MPI toegankelijk was via de NFS. Dit moest nog veder afgewerkt worden, maar wegens tijdsgebrek was het niet meer mogelijk. 
