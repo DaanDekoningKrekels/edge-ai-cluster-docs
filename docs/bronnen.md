@@ -27,6 +27,14 @@
 
 4. System-on-Module datasheet. (z.d.). Coral. https://coral.ai/docs/som/datasheet/
 
+5. Google-Coral. (z.d.-g). electricals/dev_board at master · google-coral/electricals. GitHub. https://github.com/google-coral/electricals/tree/master/dev_board
+
+6. i.MX8M. (z.d.). https://www.nxp.com/products/processors-and-microcontrollers/arm-processors/i-mx-applications-processors/i-mx-8-applications-processors/i-mx-8m-family-armcortex-a53-cortex-m4-audio-voice-video:i.MX8M
+
+7. Mini PCIe Accelerator datasheet. (z.d.). Coral. https://coral.ai/docs/mini-pcie/datasheet/
+
+8. Accelerator Module datasheet. (z.d.). Coral. https://coral.ai/docs/module/datasheet/
+
 ## Mendel Linux
 
 1. What is Mendel Linux? (z.d.). https://coral.googlesource.com/docs/+/refs/heads/master/ReadMe.md
