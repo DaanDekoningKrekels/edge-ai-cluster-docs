@@ -11,11 +11,11 @@ Er bestaat reeds een bibliotheek, ontwikkeld door het Coral team, om een TensorF
 Deze bibliotheek bestaat zowel in Python [[8]](bronnen.md) als in C++ [[9]](bronnen.md). Om te weten te komen hoe deze eventueel in dit project kunnen gebruikt worden moet er opzoek gegaan worden hoe deze code de Edge TPU detecteerd en ermee communiceert.
 Onderstaande code uit de *pycoral* bibliotheek toont ons hoe dit in zijn werk gaat.
 
-```c
+```Python
 from pycoral.utils.edgetpu import list_edge_tpus
 ```
 
-```c
+```Python
 def _get_devices(num_devices):
   """Returns list of device names in usb:N or pci:N format.
   This function prefers returning PCI Edge TPU first.
@@ -31,17 +31,17 @@ def _get_devices(num_devices):
 
 *Bovenstaande code uit: pycoral/examples/model_pipelining_classify_image.py [[10]](bronnen.md)*
 
-```c
+```Python
 from pycoral.utils.edgetpu import list_edge_tpus
 ```
 
-```c
+```Python
 from pycoral.pybind._pywrap_coral import ListEdgeTpus as list_edge_tpus
 ```
 
 *Bovenstaande code uit: pycoral/pycoral/utils/edgetpu.py [[11]](bronnen.md)*
 
-```c
+```c++
 m.def(
 "ListEdgeTpus",
       []() {
@@ -232,7 +232,7 @@ class EDGETPU_EXPORT EdgeTpuManager {
 
 Bij het runnen van de `coral_wrapper` voor de detectie van TPU's krijg je voor de enige gevonden `edgetpu_device`, met de structuur dat hierboven is gedefinieerd:
 
-```bash
+```editorConfig
 {'type': 'pci', 'path': '/dev/apex_0'}
 ```
 
@@ -323,13 +323,13 @@ Er bestaan een hele hoop packages om hardware op te lijsten:
 
 #### Installatie
 
-```bash
+```editorConfig
 sudo apt-get install lshw
 ```
 
 #### Uitvoering
 
-```bash
+```editorConfig
 mendel@wishful-dog:~$ sudo lshw -short
 H/W path  Device  Class      Description
 ========================================
@@ -363,13 +363,13 @@ Deze detectie gaat niet diep genoeg.
 
 #### Installatie
 
-```bash
+```editorConfig
 sudo apt-get install hwinfo
 ```
 
 #### Uitvoering
 
-```bash
+```editorConfig
 mendel@wishful-dog:~$ sudo hwinfo --short
 cpu:
                        CPU
@@ -426,14 +426,14 @@ Het is uit deze lijst niet af te leiden, maar uit verder onderzoek is gebleken d
 
 Instaleer inxi en mesa-utils voor glxinfo.
 
-```bash
+```editorConfig
 sudo apt-get install inxi
 sudo apt-get install mesa-utils
 ```
 
 #### Uitvoering
 
-```bash
+```editorConfig
 mendel@wishful-dog:~$ sudo inxi -Fx
 System:    Host: wishful-dog Kernel: 4.14.98-imx aarch64 bits: 64 com
 piler: gcc v: 8.3.0 Console: tty 0
@@ -470,7 +470,7 @@ Partition: ID-1: / size: 4.99 GiB used: 1.68 GiB (33.7%) fs: ext4 dev: /dev/mmcb
 Sensors:   System Temperatures: cpu: N/A mobo: N/A
            Fan Speeds (RPM): cpu: 0
 Info:      Processes: 130 Uptime: 24m Memory: 986.0 MiB used: 213 .1 MiB (21.6%) Init: systemd runlevel: 5 Compilers:
-           gcc: 8.3.0 Shell: bash v: 5.0.3 inxi: 3.0.32
+           gcc: 8.3.0 Shell: editorConfig v: 5.0.3 inxi: 3.0.32
 ```
 
 #### Conclusie
@@ -483,7 +483,7 @@ Met `mount` kan je zien welke hardware er allemaal gemount is in het systeem.
 
 #### Uitvoering
 
-```bash
+```editorConfig
 mendel@wishful-dog:~$ mount | column -t
 /dev/mmcblk0p4  on  /                           type  ext4       (rw,noatime,data=ordered)
 devtmpfs        on  /dev                        type  devtmpfs   (rw,relatime,size=340336k,nr_inodes=85084,mode=755)
@@ -528,7 +528,7 @@ PCI peripherals worden niet gemount en worden hier dus niet opgelijst.
 Deze lijst heel veel informatie op. Te veel om hier helemaal op te lijsten.
 Er is geweten dat de Edge TPU een PCI peripheral is, dus in onderstaande output is enkel informatie over PCI behouden.
 
-```bash
+```editorConfig
 mendel@wishful-dog:/$ dmesg
 ...
 [    0.000000]     PCI I/O : 0xffff7dfffee00000 - 0xffff7dffffe00000   (    16 MB)
@@ -632,7 +632,7 @@ Hiermee kunnen we specifiek PCI informatie oplijsten [[20]](bronnen.md).
 
 #### Uitvoering
 
-```bash
+```editorConfig
 mendel@wishful-dog:/$ lspci
 0000:00:00.0 PCI bridge: Synopsys, Inc. DWC_usb3 (rev 01)
 0000:01:00.0 Network controller: Qualcomm Atheros QCA6174 802.11ac Wireless Network Adapter (rev 32)
@@ -652,14 +652,14 @@ TPU's worden in de Coral code, zoals gezien in de vorige sectie, gedetecteerd vi
 
 Een meer gericht commando om de TPU te vinden uit deze documentatie is `lspci -nn | grep 089a`
 
-```bash
+```editorConfig
 mendel@wishful-dog:/$ lspci -nn | grep 089a
 0001:01:00.0 System peripheral [0880]: Device [1ac1:089a]
 ```
 
 Om niet herkende apparaten mogelijks toch te kunnen identificeren kan de lokale pci-id definitions upgedate worden met `sudo update-pciids`. Na dit te doen wordt de TPU wel herkend.
 
-```bash
+```editorConfig
 mendel@wishful-dog:/$ lspci -nn | grep 089a
 0001:01:00.0 System peripheral [0880]: Global Unichip Corp. Coral Edge TPU [1ac1:089a]
 ```
@@ -672,7 +672,7 @@ Uit deze documentatie kan nu afgeleid worden wat nodig is om een TPU toe te voeg
 
 De Coral PCIe driver voor de TPU noemt "Apex". Dit wetende kunnen we de TPU ook herkennen in `/proc/bus/pci/devices`.
 
-```bash
+```editorConfig
 mendel@wishful-dog:/$ cat /proc/bus/pci/devices
 0000 16c3abcd ea 18200004 0 0 0 0 18300000 100000 0 0 0 0 0 10000 pcieport
 0100 168c003e eb 18000004 0 0 0 0 0 0 200000 0 0 0 0 0 0 hif_pci
@@ -688,7 +688,7 @@ De laatste genaamd `apex` is hier dus de TPU.
 
 De TPU kan nu ook worden teruggevonden in `/sys/bus/pci/devices/0001:01:00.0`. Dit zou een mogelijkse weg kunnen zijn om de TPU te detecteren.
 
-```bash
+```editorConfig
 mendel@wishful-dog:/sys/bus/pci/devices/0001:01:00.0$ ls -l
 total 0
 drwxr-xr-x 3 root root       0 Feb 14  2019 apex

@@ -9,7 +9,7 @@ Met openMP wordt er verschillende parallelle toepassingen ontwikkeld voor platfo
 Het gedeelte van de code dat bedoeld is om parallel te lopen, zal eerst threads aanmaken met behulp van de compiler en dan zal de code uitgevoerd worden. Elke thread heeft een id en de primaire thread heeft een id van 0. Na de uitvoering van de geparallelleerde code worden alle threads terug samen één primaire thread. Hieronder wordt een afbeelding getoond om beter inzicht te krijgen.
 
 
-<img src="./assets/media/image1.png"/>
+![](./assets/Schema_multithreading.png 'Fig 1: Schema multithreading')
 
 # OpenMPI
 
@@ -17,10 +17,9 @@ OpenMPI implementeert open source Message Passing Interface en wordt vooral gebr
 
 Dit betekent ook dat elke core (wordt ook soms node genoemd) zijn eigen geheugen heeft. Echter, de synchronisatie is ook nodig om de taken te verdelen en om resultaten te verzamelen. Al deze data wordt verzoden en verzamelt met behulp van message passing. 
 
-OpenMPI biedt ook  API requests zoals MPI_Send en MPI_Rec om te kunnen communiceren tussen verschillende nodes. In tegenstelling tot openMP, moet hier de resultaten doorgestuurd worden naar de hooft node in het netwek. Hieronder wordt er een diagram getoond die het verschillen tussen de openMP en openMPI verduidelijkt.
+OpenMPI biedt ook  API requests zoals MPI_Send en MPI_Rec om te kunnen communiceren tussen verschillende nodes. In tegenstelling tot openMP, moet hier de resultaten doorgestuurd worden naar de hoofdnode in het netwek. Hieronder wordt er een diagram getoond die het verschillen tussen de openMP en openMPI verduidelijkt.
 
-
-<img src="./assets/media/image2.png"/>
+![](./assets/Verschil_openMP_en_openMPI.png 'Fig 2: Verschil tussen openMP en openMPI')
 
 Beide bibliotheken implementeren dus verschillende normen voor parallel computing maar met verschillende architecturen.
 
@@ -36,37 +35,37 @@ Eerst werd er geprobeerd om OpenMPI te installeren hieronder worden de genomen s
 ``` bash 
 sudo apt-get update
 ```
-<img src="./assets/media/image3.png"/>
+![](./assets/updaten_van_systeem.png 'Fig 3: Updaten van het systeem')
 
 - Upgraden van het systeem.
 ``` bash 
 sudo apt-get upgrade
  ```
-<img src="./assets/media/image4.png" />
+![](./assets/upgraden_van_systeem.png 'Fig 4: Upgraden van het systeem')
 
 - De volgende commando zorgt ervoor dat de meta-pakketten die essentieel om een programma te compileren geïnstalleerd worden.
 ``` bash 
 sudo apt install build-essential
 ```
-<img src="./assets/media/image5.png" />
+![](./assets/installatie_build-essential.png 'Fig 5: Installeren van build-essential')
 
 - De installatie van openMPI.
 ``` bash 
 sudo apt-get install openmpi-bin openmpi-doc libopenmpi-dev
 ```
-<img src="./assets/media/image6.png" />
+![](./assets/installatie_openMPI.png 'Fig 6: Installeren van openMPI')
 
 - Om te kijken of openMPI goed geïnstalleerd werd, moeten de volgende commando’s uitgevoerd worden.
 ``` bash 
 mpiexec –version
 ```
-<img src="./assets/media/image7.png" />
+![](./assets/MPI_versie_vragen.png 'Fig 7: Vragen van MPI versie')
 
 - Andere optie is ook mogelijk.
 ``` bash 
 mpirun –version
 ```
-<img src="./assets/media/image8.png" />
+![](./assets/mpirun_versie_vragen.png 'Fig 8: Vragen van MPI versie')
 
 Nu is het tijd om de openMPI te testen door een voorbeeld programma te runnen. Om met de TPU’s te communiceren, wordt er gebruik gemaakt CMD. Omdat het niet mogelijk is om in CMD een editor te openen, wordt er een voorbeeld programma’s vanuit GitHub gebruikt. Deze kan gedaan worden met de volgende commando:
 ``` bash 
@@ -77,13 +76,13 @@ git clone <https://github.com/open-mpi/ompi>
 ``` bash 
 mpicc -o hello hello_c.c
 ```
-<img src="./assets/media/image9.png" />
+![](./assets/compileren_van_programma.png 'Fig 9: Compileren van het programma')
 
 - Nu wordt de gecompileerde bestand uitgevoerd.
 ``` bash 
 mpiexec -n 4 ./hello
 ```
-<img src="./assets/media/image10.png" />
+![](./assets/uitvoering_van_code.png 'Fig 10: Uitvoeren van het programma')
 
 Deze code is vooral geschreven in C, maar omdat de TPU’s gebruik maakt van Python is het best dat er hier ook gebruikt gemaakt wordt van Python.
 
@@ -91,76 +90,77 @@ Deze code is vooral geschreven in C, maar omdat de TPU’s gebruik maakt van Pyt
 ``` bash 
 sudo apt-get install python3
 ```
-<img src="./assets/media/image11.png" />
+![](./assets/installatie_Python3.png 'Fig 11: Installeren van Python3')
 
 - Installeren van mpi4. Deze zorgt ervoor dat MPI gebruikt kan worden met Python. Dit wil zeggen dat dit eigenlijk een library is, die in Python scripts gebruik kan worden.
 ``` bash 
 sudo apt install python3-mpi4py
 ```
-<img src="./assets/media/image12.png" />
+![](./assets/installatie_mpi4.png 'Fig 12: Installeren van mpi4py')
 
 - Om te kijken of mpi4py goed is geïnstalleerd kan de volgende commando uitgevoerd worden.
 ``` bash 
 python3 -m pip show mpi4py
 ```
-<img src="./assets/media/image13.png" />
+![](./assets/mpi4py_versie_vragen.png 'Fig 13: Versie van mpi4py vragen')
 
 - Om voorbeeld codes van de py scripts te krijgen wordt er volgende commando gebruikt.
 ``` bash 
-git clone <https://github.com/jbornschein/mpi4py-examples>
+git clone https://github.com/jbornschein/mpi4py-examples
 ```
-<img src="./assets/media/image14.png" />
+![](./assets/clone_van_mpi4py_examples.png 'Fig 14: Downloaden van voorbeeld programma')
 
 Bij het uitvoeren van de programma’s kwamen er aantal errors opdagen. Na verder onderzoek en testing werd er duidelijk dat deze versie van openMPI niet compatibel is met de Coral Dev Board. Ook is het hier niet eenvoudig om met Python scripts te werken aangezien deze ook voor meer errors zorgt. Een voorbeeld hiervan is:
 
-<img src="./assets/media/image15.png" />
+![](./assets/error_mpi4py.png 'Fig 15: Een van de error')
 
 Er werd alles gedaan om deze soort errors weg te werken, maar helaas was het niet zo zeer gelukt. Na het bespreken met andere teamgenoten werd er beslist om MPICH3 te installeren en daarmee verder te gaan.
 
 Zoals eerder vermeld is deze ook een andere versie van openMP en kan gebruikt worden om de taken te verdelen tussen verschillende nodes/tpu’s. Daarnaast werkt deze versie ook veel beter met Python scripts. Hieronder staan de genomen stappen om de installatie van de MPICH te voltooien. Daarnaast wordt de MPICH vanuit de source code geïnstalleerd. Dit betekent dat er geen package manager gebruikt wordt en de sourcecode wordt dan op de TPU gecompileerd.
 
 - Als eerst wordt de zip file van de MPICH3 geïnstalleerd met volgende commando.
+
 ``` bash 
-sudo wget <https://www.mpich.org/static/downloads/3.2/mpich-3.2.tar.gz>
+sudo wget https://www.mpich.org/static/downloads/3.2/mpich-3.2.tar.gz
 ```
-<img src="./assets/media/image16.png" />
+
+![](./assets/installatie_MPICH.png 'Fig 16: Downloaden van MPICH')
 
 - Deze zip file moet dan geünzipt.
 ``` bash 
 sudo tar xfz mpich-3.2.tar.gz
 ```
-<img src="./assets/media/image17.png" />
+![](./assets/unzippen_MPICH.png 'Fig 17: Unzippen van MPICH')
 
 - Installeren van GNU Fortan. Deze is een compiler die gebruikt wordt om de MPICH3 te compilen. Bij de installatie moet er ook op “Y” gedrukt worden om de installatie te voltooien.
 ``` bash 
 sudo apt-get install gfortran
 ```
-<img src="./assets/media/image18.png" />
+![](./assets/installatie_gfortan.png 'Fig 18: Intalleren van gfortan')
 
 - Nu wordt de MPICH3 geconfigureerd.
 ``` bash 
 sudo /home/mendel/mpich-3.2/configure -prefix=/home/mpi/mpi-install
 ```
-<img src="./assets/media/image19.png" />
+![](./assets/configureren_MPICH.png 'Fig 19: Configureren van MPICH')
 
 - Nu is het tijd om de code te compileren. Dit duurde wel ongeveer 30
     minuten.
 ``` bash 
 sudo make
 ```
-<img src="./assets/media/image19.png" />
 
 - Nadat de code gecompileerd is, wordt de MPICH nu geïnstalleerd.
 ``` bash 
 sudo make install
 ```
-<img src="./assets/media/image20.png" />
+![](./assets/make_MPICH.png 'Fig 20: Uitvoeren van install commando')
 
 - Om te controleren of nu de Python script kan de script op volgende manier uitgevoerd worden.
 ``` bash 
 mpirun -np 2 python3 01-hello-world.py
 ```
-<img src="./assets/media/image21.png" />
+![](./assets/runnen_programma_op_TPU.png 'Fig 21: Runnen van het programma')
 
 - De voorgaande commando was bedoeld om op één TPU te runnen, maar om de taken tussen verschillende tpu’s te verdelen, kan de volgende commando uitgevoerd worden.
 
@@ -182,4 +182,4 @@ IP-adres van TPU’s zijn:
 ``` bash 
 mpiexec -n 2 -H 192.168.88.11,192.168.88.12,192.168.88.13,192.168.88.14,192.168.88.15 python3 programmanaam
 ```
-<img src="./assets/media/image22.png" />
+![](./assets/runnen_programma_met_andere_TPUS.png 'Fig 22: Runnen van het programma')

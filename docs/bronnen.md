@@ -17,7 +17,7 @@
 
 6. Kumar, S. (2009, 13 mei). Building a Beowulf Cluster in just 13 steps. Linux.com. https://www.linux.com/training-tutorials/building-beowulf-cluster-just-13-steps/
 
-## Coral Dev Boards
+## Coral Dev Board
 
 1. Get started with the Dev Board. (z.d.). Coral. Geraadpleegd op 20 september 2022, van https://coral.ai/docs/dev-board/get-started/
 
