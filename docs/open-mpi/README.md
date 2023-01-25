@@ -162,6 +162,22 @@ sudo make install
 ``` bash 
 mpirun -np 2 python3 01-hello-world.py
 ```
+
+De “hello world” code ziet er als volgt uit.
+``` bash 
+#!/usr/bin/env python
+
+from __future__ import print_function
+from mpi4py import MPI
+
+
+comm = MPI.COMM_WORLD
+
+print("Hello! I'm rank %d from %d running in total..." % (comm.rank, comm.size))
+
+comm.Barrier()   # wait for everybody to synchronize _here_
+```
+
 ![](./assets/runnen_programma_op_TPU.png 'Fig 23: Runnen van het programma')
 
 - De voorgaande commando was bedoeld om op één TPU te runnen, maar om de taken tussen verschillende TPU’s te verdelen, kan de volgende commando uitgevoerd worden.
