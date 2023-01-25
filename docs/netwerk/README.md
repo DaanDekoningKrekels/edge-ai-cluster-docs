@@ -1,8 +1,8 @@
 ## Netwerk setup
 
-> Hoe we het netwerk hadden ingesteld en wat de verschillende instellingen waren.
+<!-- > Hoe we het netwerk hadden ingesteld en wat de verschillende instellingen waren.
 
-> Welke exacte router we hebben toevoegen Router HAP-HC lite tower new 
+> Welke exacte router we hebben toevoegen Router HAP-HC lite tower new  -->
 
 ### Router
 
