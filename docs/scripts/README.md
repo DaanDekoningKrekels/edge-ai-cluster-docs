@@ -2,19 +2,31 @@
 
 Op de master is een bash script aanwezig dat het mogelijk maakt om vanaf de master de status van ieder node te bekijken, ieder node te remounten en uit te schakelen.
 
-Bij het uitvoeren van `~/node-statuses.sh` op de master zal er gecontorlleerd worden of de SSH-poort (22) van iedere node beschikbaar is. 
+```bash
+~/node-statuses.sh
+```
+
+Bij het uitvoeren van bovenstaand commando op de master, zal er gecontroleerd worden of de SSH-poort (22) van iedere node beschikbaar is. 
 - Als deze beschikbaar is wordt de temperatuur van de node weergegeven en de status van de NFS-mount.
 - Als deze niet beschikbaar is zal er een foutmelding getoond worden.
 
 Bij ieder SSH-commando is het `ConnectTimeout=5` argument meegegeven om ervoor te zorgen dat het script niet blijft vasthangen bij een onbereikbare node.
 
-Bij het uitvoeren van `~/node-statuses.sh remount` zal op ieder node waarvan SSH-poort 22 beschikbaar is het volgende commando automatisch worden uitgevoerd: `sudo systemctl restart mnt-share.mount`. Dit commando is handig als de master na de nodes is opgestart waardoor de nodes niet konden verbinden met de NFS-map.
+```bash
+~/node-statuses.sh remount
+```
 
-Bij het uitvoeren van `~/node-statuses.sh poweroff` zal op ieder node waarvan SSH-poort 22 beschikbaar is het commando `sudo poweroff` worden uitgevoerd. Dat is handig als je de hele cluster wil uitschakelen zonder dit node-per-node te doen.
+Bij het uitvoeren van bovenstaand commando, zal op ieder node waarvan SSH-poort 22 beschikbaar is het volgende commando automatisch worden uitgevoerd: `sudo systemctl restart mnt-share.mount`. Dit commando is handig als de master na de nodes is opgestart waardoor de nodes niet konden verbinden met de NFS-map.
+
+```bash
+~/node-statuses.sh poweroff
+```
+
+Bij het uitvoeren van bovenstaand commando, zal op ieder node waarvan SSH-poort 22 beschikbaar is het commando `sudo poweroff` worden uitgevoerd. Dat is handig als je de hele cluster wil uitschakelen zonder dit node-per-node te doen.
 
 Na het uitvoeren van `remount` en `poweroff` zal het script alsnog controleren of de nodes beschikbaar zijn en eventueel de temperatuur en mount-status weergeven.
 
-voor de temperatuuruitlezing is de Coral documentatie [(Manage the PCIe module temperature, z.d.)](../bronnen.md#master-beheerder-script) gebruikt als referentie.
+Voor de temperatuuruitlezing is de Coral documentatie [(Manage the PCIe module temperature, z.d.)](bronnen.md#master-beheerder-script) gebruikt als referentie.
 
 ## Bash script
 

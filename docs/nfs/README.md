@@ -1,4 +1,4 @@
-## NFS setup
+# NFS opzetten
 
 >Hoe we NFS eerst wilde instellen. 
 >Hoe we het uiteindelijk hebben ingesteld en alle problemen die we daarbij hadden.
@@ -72,14 +72,14 @@ Het `motprobe` commando mocht ook niet baten want de `nfsd` module is niet aanwe
 > 5. https://github.com/nfs-ganesha/nfs-ganesha/blob/next/src/config_samples/export.txt
 > 6. https://cloudnull.io/2017/05/nfs-mount-via-systemd/
 
-### NFS Ganesha
+## NFS Ganesha
 
 
-NFS-Ganesha [(User Space NFS and 9P File Server, z.d.)](../bronnen.md#nfs-setup) is een implementatie van een NFS-server voor de user space in plaats van de kernel space. Dit maakt de implementatie flexibeler. De NFS server was al snel draaiende! Een nadeel van deze implementatie is dat het iets trager is. Er kan getracht worden dit te optimaliseren door bijvoorbeeld locking uit te schakelen. 
+NFS-Ganesha [(User Space NFS and 9P File Server, z.d.)](bronnen.md#nfs-setup) is een implementatie van een NFS-server voor de user space in plaats van de kernel space. Dit maakt de implementatie flexibeler. De NFS server was al snel draaiende! Een nadeel van deze implementatie is dat het iets trager is. Er kan getracht worden dit te optimaliseren door bijvoorbeeld locking uit te schakelen. 
 
 Blij locking wordt een bestand dat door een gebruiker over het netwerk gedeeld is vastgezet wanneer er een gebruiker dit aan het bewerken is. Dit principe zorgt ervoor dat erg geen data verloren gaat wanneer twee mensen hetzelfde bestand overschrijven, maar maakt de server ook iets trager.  
 
-Bij het instellen van de NFS Ganesha server zijn de stappen van ObjectiveFS [(How To Set Up NFS Ganesha | ObjectiveFS, z.d.)](../bronnen.md#nfs-setup) gevolgd.
+Bij het instellen van de NFS Ganesha server zijn de stappen van ObjectiveFS [(How To Set Up NFS Ganesha | ObjectiveFS, z.d.)](bronnen.md#nfs-setup) gevolgd.
 
 Standaard instelling:
 
@@ -116,7 +116,13 @@ EXPORT
 }
 ```
 
-Na het commando `sudo systemctl start nfs-ganesha` was de NFS-server gestart! De positieve status is te zien.
+Na volgend commando: 
+
+```bash
+sudo systemctl start nfs-ganesha
+```
+
+Zal de NFS Ganesha server opstarten. De positieve status is te zien.
 
 <pre><font color="#8AE234"><b>●</b></font> nfs-ganesha.service - NFS-Ganesha file server
    Loaded: loaded (/lib/systemd/system/nfs-ganesha.service; enabled; vendor preset: enabled)
@@ -140,9 +146,9 @@ Export list for localhost:
 
 
 
-Momenteel ziet de ganesha.conf er zo uit:
+Momenteel ziet de `ganesha.conf` er zo uit:
 
-Dit is gebaseerd op de [Sample export config van de NFS Ganesha GitHub](../bronnen.md#nfs-setup).
+Dit is gebaseerd op de [Sample export config van de NFS Ganesha GitHub](bronnen.md#nfs-setup).
 
 ```editorconfig
 ###################################################
@@ -183,13 +189,15 @@ EXPORT
 
 
 
-### Automount master NFS share
+## Automount master NFS share
 
-Meer informatie is te vinden in het [artikel van Carter (2017) [bron 4]](../bronnen.md#nfs-setup).
+Meer informatie is te vinden in het [artikel van Carter (2017) [bron 4]](bronnen.md#nfs-setup).
 
 `nfs-common` zeker installeren.
 
-`sudo nano /etc/systemd/system/mnt-share.mount`
+```bash
+sudo nano /etc/systemd/system/mnt-share.mount
+```
 
 ```systemd
 [Unit]
@@ -206,13 +214,21 @@ Options=_netdev,auto
 WantedBy=multi-user.target
 ```
 
-`sudo systemctl daemon-reload`
+```bash
+sudo systemctl daemon-reload
+```
 
-`sudo systemctl start mnt-share.mount`
+```bash
+sudo systemctl start mnt-share.mount
+```
 
-`sudo systemctl enable mnt-share.mount`
+```bash
+sudo systemctl enable mnt-share.mount
+```
 
-`sudo systemctl status mnt-share.mount`
+```bash
+sudo systemctl status mnt-share.mount
+```
 
 <pre><font color="#8AE234"><b>mendel@purple-kid</b></font>:<font color="#729FCF"><b>~</b></font>$ sudo systemctl status mnt-share.mount
 <font color="#8AE234"><b>●</b></font> mnt-share.mount - NFS share van de Master node
