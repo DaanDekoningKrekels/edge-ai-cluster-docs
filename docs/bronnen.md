@@ -1,7 +1,7 @@
 # Bronnen
 
-> Onze bronnen in APA vorm.
-> https://www.scribbr.nl/bronvermelding/generator/
+<!-- > Onze bronnen in APA vorm.
+> https://www.scribbr.nl/bronvermelding/generator/ -->
 
 ## Beowulf Cluster
 
@@ -114,6 +114,8 @@
 3. N. (z.d.). Sample export config. GitHub nfs-ganesha. https://github.com/nfs-ganesha/nfs-ganesha/blob/next/src/config_samples/export.txt
 
 4. Carter, K. (2017, 11 december). NFS mount via systemd. Same Null, Different Cloud. https://www.cloudnull.io/2017/05/nfs-mount-via-systemd/
+
+5. 7. Troubleshooting - 7.9. nfsd won't start. (z.d.). https://nfs.sourceforge.net/nfs-howto/ar01s07.html#nfsd_wont_start
 
 ## Master beheerder script
 

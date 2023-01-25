@@ -1,6 +1,6 @@
 ## Dev Boards flashen
 
->Uitleg en tutorial hoe de Dev Boards te programmeren zijn en welke instellingen we zoal hadden aangepast.
+<!-- >Uitleg en tutorial hoe de Dev Boards te programmeren zijn en welke instellingen we zoal hadden aangepast. -->
 
 De documentatie rond het installeren van Mendel Linux is best uitgebreid en is [hier](https://coral.ai/docs/dev-board/get-started/) te vinden. Voor de installatie is een micro-SD-kaart nodig en een computer. Op de SD-kaart staat het Linux-systeem dat bij het opstarten met de schakelaars in de juiste positie het systeem installeert naar het interne flash geheugen. De SD-kaart kan na dit proces weggehaald worden.
 
@@ -20,7 +20,7 @@ Om met de Dev Boards te verbinden kan er gebruik gemaakt worden van MDT. MDT sta
 
 ## MDT instellen
 
->Hoe we MDT hebben ingesteld met al die sleutels enzo.
+<!-- >Hoe we MDT hebben ingesteld met al die sleutels enzo. -->
 
 De documentatie om MDT te installeren vindt u [hier](https://coral.ai/docs/dev-board/get-started/#install-mdt).
 

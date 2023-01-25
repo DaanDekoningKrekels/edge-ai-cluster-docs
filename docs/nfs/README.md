@@ -1,7 +1,7 @@
 # NFS opzetten
 
->Hoe we NFS eerst wilde instellen. 
->Hoe we het uiteindelijk hebben ingesteld en alle problemen die we daarbij hadden.
+<!-- >Hoe we NFS eerst wilde instellen. 
+>Hoe we het uiteindelijk hebben ingesteld en alle problemen die we daarbij hadden. -->
 
 Een Network File System is een manier om meerdere machines data gemakkelijk te delen met elkaar. Er is een centrale administratie voorzien. 
 
@@ -65,12 +65,6 @@ Het `motprobe` commando mocht ook niet baten want de `nfsd` module is niet aanwe
 
 ![Mendel Linux Kernel NFS module](../assets/linux-kernel-nfsd.png)
 
-> 1. https://nfs.sourceforge.net/nfs-howto/ar01s07.html#nfsd_wont_start
-> 2. https://nfs-ganesha.github.io/
-> 3. https://objectivefs.com/howto/how-to-set-up-nfs-ganesha
-> 4. https://objectivefs.com/howto/how-to-set-up-nfs-ganesha
-> 5. https://github.com/nfs-ganesha/nfs-ganesha/blob/next/src/config_samples/export.txt
-> 6. https://cloudnull.io/2017/05/nfs-mount-via-systemd/
 
 ## NFS Ganesha
 

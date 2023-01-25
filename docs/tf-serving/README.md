@@ -1,7 +1,7 @@
 # TensorFlow Serving
 
->Wat TensorFlow Serving is en hoe we denken/dachten dat we het konden gebruiken.
->Wat de moeilijkheden daarbij waren.
+<!-- >Wat TensorFlow Serving is en hoe we denken/dachten dat we het konden gebruiken.
+>Wat de moeilijkheden daarbij waren. -->
 
 In de Python documentatie van TensorFlow is een passage genaamd [`TPUClusterResolver`](https://docs.w3cub.com/tensorflow~2.4/distribute/cluster_resolver/tpuclusterresolver.html). Dat klinkt interessant! De parameter `tpu` stelt het volgende voor: "A string corresponding to the TPU to use. It can be the TPU name or TPU worker gRPC address."
 

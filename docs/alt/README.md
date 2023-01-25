@@ -1,6 +1,6 @@
 # Alternatieve oplossingen
 
-> Verschillende alternatieven die we geprobeerd hebben zoals tf serving
+<!-- > Verschillende alternatieven die we geprobeerd hebben zoals tf serving -->
 
 Er zijn ook nog alternatieve benaderingen. Er kan bij een cluster gebleven worden, maar ook gekeken worden naar andere manieren om TPU's samen te gebruiken. 
 
