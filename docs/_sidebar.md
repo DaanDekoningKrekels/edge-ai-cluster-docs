@@ -26,7 +26,7 @@
 
   * [Open MPI instellen](open-mpi/README.md)
 
-* [Behuizing](behzuing/README.md)
+* [Behuizing](behuizing/README.md)
 
 * [Alternatieve oplossingen](alt/README.md)
 
