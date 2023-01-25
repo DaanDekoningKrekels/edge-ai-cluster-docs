@@ -1,6 +1,6 @@
 ## TensorFlow model draaien
 
->Hoe we een TensorFlow model zoal kunnen draaien op één TPU en hoe we dat willen verwezenlijken in de cluster. 
+<!-- >Hoe we een TensorFlow model zoal kunnen draaien op één TPU en hoe we dat willen verwezenlijken in de cluster.  -->
 
 Om een python model te kunnen draaien op een Coral Dev Board moet deze worden gecompileerd naar 8bit. Wanneer het Tensorflow model wordt geconverteerd dan wordt dit een Tensorflow Lite file. Dit moet men dan nog compileren om het Edge TPU model te kunnen verkrijgen waarna men het kan deployen op het Coral Dev Board. Onderstaande afbeelding geeft hier een visuele voorstelling van. 
 

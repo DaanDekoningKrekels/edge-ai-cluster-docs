@@ -1,7 +1,7 @@
 # Bronnen
 
-> Onze bronnen in APA vorm.
-> https://www.scribbr.nl/bronvermelding/generator/
+<!-- > Onze bronnen in APA vorm.
+> https://www.scribbr.nl/bronvermelding/generator/ -->
 
 ## Beowulf Cluster
 
@@ -17,7 +17,7 @@
 
 6. Kumar, S. (2009, 13 mei). Building a Beowulf Cluster in just 13 steps. Linux.com. https://www.linux.com/training-tutorials/building-beowulf-cluster-just-13-steps/
 
-## Coral Dev Boards
+## Coral Dev Board
 
 1. Get started with the Dev Board. (z.d.). Coral. Geraadpleegd op 20 september 2022, van https://coral.ai/docs/dev-board/get-started/
 
@@ -127,6 +127,8 @@
 
 4. Carter, K. (2017, 11 december). NFS mount via systemd. Same Null, Different Cloud. https://www.cloudnull.io/2017/05/nfs-mount-via-systemd/
 
+5. 7. Troubleshooting - 7.9. nfsd won't start. (z.d.). https://nfs.sourceforge.net/nfs-howto/ar01s07.html#nfsd_wont_start
+
 ## Master beheerder script
 
 1. Manage the PCIe module temperature. (z.d.). Coral. https://coral.ai/docs/pcie-parameters/
@@ -176,3 +178,23 @@
 11. Installation — MPI for Python 3.1.4 documentation. (n.d.). https://mpi4py.readthedocs.io/en/stable/install.html
 
 12. GeeksforGeeks. (2022, March 7). How to Install “Python3-mpi4py” package on Linux? https://www.geeksforgeeks.org/how-to-install-python3-mpi4py-package-on-linux/
+
+## Conclusie
+
+1. Products. (z.d.). Coral. https://coral.ai/products/
+
+2. M.2 Accelerator with Dual Edge TPU. (z.d.). Coral. https://coral.ai/products/m2-accelerator-dual-edgetpu/
+
+3. Dev Board. (z.d.). Coral. https://coral.ai/products/dev-board/
+
+4. M.2 Accelerator B+M key. (z.d.). Coral. https://coral.ai/products/m2-accelerator-bm/
+
+5. Delock PCI Express x16 Karte zu 4 x intern NVMe M.2 Key M - Bifurcation (z.d.). https://www.allekabels.be/delock/6335/3822788/delock-pci-express-x16-karte-zu-4-x-intern-nvme-m.2-key-m-bifurcation.html
+
+6. Bitcoin Mining Board Manufacturers - BIOSTAR. (z.d.). https://www.biostar.com.tw/app/en/mb/introduction.php?S_ID=1031
+
+7. ASUS IoT: Industrial Motherboard, Intelligent Edge Computer, Single Board Computer. (z.d.). https://iot.asus.com/products/AI-accelerator/AI-Accelerator-PCIe-Card/
+
+8. Amazon.com: PCIe Gen3 AI Accelerator PCIe Card Based on Google Coral Edge TPU for Edge AI Inference(CRL-G18U-P3DF) : Electronics. (z.d.). https://www.amazon.com/Accelerator-Based-Google-Inference-CRL-G18U-P3DF/dp/B08TZRX2WP
+
+9. België, A. (z.d.). Alternate.be | Jouw on- en offline specialist. ALTERNATE. https://www.alternate.be/

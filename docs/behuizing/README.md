@@ -10,19 +10,24 @@ Een afbeelding van deze eerste iteratie van de behuizing wordt hieronder geprese
 
 In deze periode was het nog onbekend dat de ontwerper rekening diende te houden met de benodigde apparatuur die in de behuizing moest passen. Bovendien, is er geen voorziening voor koeling, buiten de ingebouwde koeling op de TPU's zelf.
 
-_Behuizing iteratie 1_
+Het is duidelijk dat deze behuizing alleen geschikt is voor het (semi) proper houden van de kabels. Er was een herontwerp nodig om aan de eisen te voldoen. 
 
-Het is duidelijk dat deze behuizing alleen geschikt is voor het (semi) proper houden van de kabels. Er was een herontwerp nodig om aan de eisen te voldoen. ![](RackMultipart20230125-1-8zomgd_html_d8950c954f5545b1.png)
+<img src="behuizing/assets/behuizing%20iteratie%201.png" width="300">
+
+_Behuizing iteratie 1_
 
 ## Iteratie 2
 
 Deze iteratie heeft een fundamenteel herontwerp van de behuizing. Om inspiratie te verkrijgen, is er gezocht naar bestaande cluster behuizingen via internet. Door middel van zoekopdrachten op Google afbeeldingen, werd een specifieke cluster case voor Raspberry Pi's ontdekt. Dit ontwerp is vervolgens aangepast aan de vereisten van de TPU's om te functioneren als geschikte behuizing.
 
-![](RackMultipart20230125-1-8zomgd_html_599627c900f6d279.jpg)
+<img src="behuizing/assets/behuizing%20voorbeeld%20cluster%20case.jpg" width="300">
 
 _Voorbeeld van cluster case met Raspberry Pi's 1_
 
-![](RackMultipart20230125-1-8zomgd_html_eb9326066d0b780.png) ![](RackMultipart20230125-1-8zomgd_html_135dc5c65ed5f80f.png)
+<div style="display: flex;">
+ <img src="behuizing/assets/behuizing%20iteratie%202_1.png" width="300">
+ <img src="behuizing/assets/behuizing%20iteratie%202_2.png" width="300">
+</div>
 
 _Behuizing iteratie 2_
 
@@ -30,11 +35,12 @@ Hieronder wordt een afbeelding gepresenteerd van de tweede iteratie van de behui
 
 Er zijn enkele problemen ontstaan tijdens dit ontwerpproces. Specifiek, de handvatten van de platen waarop de TPU's zijn gemonteerd (de hoekige ovale waar de vingers in kunnen worden gestoken) waren niet dik genoeg. Hoewel dit fout in de render niet zichtbaar is, omdat het is aangepast in het uiteindelijke ontwerp van de tweede iteratie, heeft dit probleem ertoe geleid dat dit onderdeel zeer kwetsbaar was voor breuk, aangezien het niet dik genoeg was.
 
-_Huidige versie_
+<div style="display: flex;">
+ <img src="behuizing/assets/behuizing%20houder%20oud.png" width="300">
+ <img src="behuizing/assets/behuizing%20houder%20nieuw.png" width="300">
+</div>
 
- ![](RackMultipart20230125-1-8zomgd_html_af570946af9a8f67.png) ![](RackMultipart20230125-1-8zomgd_html_f484aa6b263edc17.png)
-
-_Oude versie_
+_Oude versie en Nieuwe versie_
 
 In een eerdere versie van de behuizing was de breedte van het handvat slechts 2.5mm, hetgeen onvoldoende was voor een stevige constructie. Om deze beperking aan te pakken, is er besloten om de breedte te verhogen naar 5mm, waardoor de totale breedte van het handvat 7.5mm bedraagt. Hierdoor is de stevigheid van het handvat verbeterd en komt het minder snel tot breuk.
 
@@ -44,7 +50,10 @@ Er zijn nog enkele andere aspecten waar verbetering mogelijk is, echter zullen d
 
 De besluitvorming om een extra iteratie te maken voor de behuizing was een gevolg van de ontdekte fouten in het ontwerp in de latere fasen van de ontwikkeling. Dit had oorspronkelijk niet in de planning voorzien. Echter, gezien de noodzaak om deze problemen op te lossen, is er besloten om deze iteratie te ontwikkelen.
 
-![](RackMultipart20230125-1-8zomgd_html_b9a4d4e80760bb36.png) ![](RackMultipart20230125-1-8zomgd_html_3b98401a044fcc1e.png)
+<div style="display: flex;">
+ <img src="behuizing/assets/behuizing%20iteratie%203_1.png" width="300">
+ <img src="behuizing/assets/behuizing%20iteratie%203_2.png" width="300">
+</div>
 
 _Behuizing iteratie 3_
 
@@ -56,17 +65,25 @@ Een groot probleem dat pas laat werd ontdekt was dat de ruimte in de kelder onvo
 
 Een ander probleem dat zich voordeed was dat er geen manier was om de ventilatoren te voeden. De ventilatoren vereisten 12V maar de voeding levert slechts 5V (via USB). Er was wel een idee voor een oplossing: een kleine printplaat frezen met daarop een DC-barrel jack en een schroefconnector. Hierdoor zou de kabels van de ventilatoren vastgemaakt kunnen worden aan de schroefconnector en voeden via een externe voeding door de barrel jack. Helaas was de freesmachine voor de printplaat te maken kapot, dus kon deze niet gebruikt worden. Er was ook overwogen om dit op te lossen door gebruik te maken van perfboard, maar de school had hier geen op voorraad.
 
-![](RackMultipart20230125-1-8zomgd_html_cc7b888a6269c56c.jpg) ![](RackMultipart20230125-1-8zomgd_html_c5c374d33f4c9ec9.jpg) ![](RackMultipart20230125-1-8zomgd_html_f1aa2dd14b537c08.png)
+<div style="display: flex;">
+ <img src="behuizing/assets/behuizing%20barrel%20jack.png.jpg" width="300">
+ <img src="behuizing/assets/behuizing%20schroefconnector.jpg" width="300">
+ <img src="behuizing/assets/behuizing%20perfboard.png" width="300">
+</div>
 
-_DC-barrel jack Schroefconnector Perfboard_
+_DC-barrel jack, Schroefconnector, Perfboard_
 
 # Resultaat
 
 Hier zijn een aantal foto's van het resultaat:
 
-![](RackMultipart20230125-1-8zomgd_html_960b06b3cb47f319.jpg) ![](RackMultipart20230125-1-8zomgd_html_3c56a6fe301be700.jpg)
+<div style="display: flex;">
+ <img src="behuizing/assets/behuizing%20resultaat%201.jpg" width="300">
+ <img src="behuizing/assets/behuizing%20resultaat%202.jpg" width="300">
+ <img src="behuizing/assets/behuizing%20resultaat%203.jpg" width="500">
+</div>
 
-![](RackMultipart20230125-1-8zomgd_html_4499270acbb9d8af.jpg)
+_Resultaat_
 
 Hoewel er nog veel fouten aanwezig zijn in dit ontwerp en het uiteindelijk niet geschikt was als behuizing voor de cluster, beschouw ik dit toch als een behoorlijk resultaat voor een "concept of design".
 
