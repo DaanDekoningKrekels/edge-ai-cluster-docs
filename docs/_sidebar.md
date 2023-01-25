@@ -26,6 +26,8 @@
 
   * [Open MPI instellen](open-mpi/README.md)
 
+* [Behuizing](behzuing/README.md)
+
 * [Alternatieve oplossingen](alt/README.md)
 
   * [TensorFlow Serving](tf-serving/README.md)
