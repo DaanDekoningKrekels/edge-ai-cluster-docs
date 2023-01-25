@@ -130,3 +130,29 @@
 4. Tensorflow/serving: A flexible, high-performance serving system for machine learning models. (z.d.). GitHub. https://github.com/tensorflow/serving
 
 5. Google Developers. (z.d.). tensorflow-serving-apt. storage.googleapis.com. http://storage.googleapis.com/tensorflow-serving-apt
+
+## OpenMP/OpenMPI/MPICH
+
+1. Share An Online Entry “OpenMP.” (n.d.). https://encyclopedia.pub/entry/30022
+
+2. What is the difference between OpenMP and OpenMPI? (n.d.). Educative: Interactive Courses for Software Developers. https://www.educative.io/answers/what-is-the-difference-between-openmp-and-openmpi
+
+3. MPICH – Research Computing, HKU ITS. (n.d.). https://hpc.hku.hk/hpc/software/mpich/
+
+4. Wikipedia contributors. (2022, October 30). MPICH. Wikipedia. https://en.wikipedia.org/wiki/MPICH
+
+5. Which MPI Implementation? (2015, August 16). Into the Wave. https://intothewave.wordpress.com/2014/11/06/which-mpi-implementation/
+
+6. OpenGenus Foundation. (2018, November 13). Install OpenMP from source. OpenGenus IQ: Computing Expertise & Legacy. https://iq.opengenus.org/install-openmp-from-source/
+
+7. Armstrong, J. (2018, October 18). OpenMP on Ubuntu - The Startup. Medium. https://medium.com/swlh/openmp-on-ubuntu-1145355eeb2
+
+8. Feyziyev, A. (2022, January 5). How to install OpenMPI on Ubuntu (18.04) Cluster - Azar Feyziyev. Medium. https://feyziyev007.medium.com/how-to-install-openmpi-on-ubuntu-18-04-cluster-2fb3f03bdf61
+
+9. Wilkinson, B. W. (2015, May 29). Parallel Programming. Installing OpenMPI. https://webpages.charlotte.edu/abw/coit-grid01.uncc.edu/ParallelProgSoftware/Software/OpenMPIInstall.pdf
+
+10. What are the differences between MPI and OpenMP? (2015, September 8). Stack Overflow. https://stackoverflow.com/questions/32464084/what-are-the-differences-between-mpi-and-openmp
+
+11. Installation — MPI for Python 3.1.4 documentation. (n.d.). https://mpi4py.readthedocs.io/en/stable/install.html
+
+12. GeeksforGeeks. (2022, March 7). How to Install “Python3-mpi4py” package on Linux? https://www.geeksforgeeks.org/how-to-install-python3-mpi4py-package-on-linux/

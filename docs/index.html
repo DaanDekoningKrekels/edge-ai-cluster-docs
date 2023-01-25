@@ -1,59 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Edge AI - TPU Beowulf Cluster</title>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <meta name="description" content="Description">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
-</head>
-<body>
-  <style>
-    :root {
-      --theme-color: #ff5e4d; /* Coral kleur */
-    }
-  </style>
-  <div id="app"></div>
-  <script src="//unpkg.com/docsify-edit-on-github@1/index.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
-  
-  <script>
-      let repoUrl = "https://github.com/DaanDekoningKrekels/edge-ai-cluster-docs";
+  <head>
+    <meta charset="UTF-8" />
+    <title>Edge AI - TPU Beowulf Cluster</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="description" content="Description" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0"
+    />
+    <link
+      rel="stylesheet"
+      href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css"
+    />
+  </head>
+  <body>
+    <style>
+      :root {
+        --theme-color: #ff5e4d; /* Coral kleur */
+      }
+    </style>
+    <div id="app"></div>
+    <script src="//unpkg.com/docsify-edit-on-github@1/index.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
+
+    <script>
+      let repoUrl =
+        "https://github.com/DaanDekoningKrekels/edge-ai-cluster-docs";
       let editPath = repoUrl + "/blob/main/docs/";
       let editMsg = "📝 Aanpassen op GitHub";
-  
+
       window.$docsify = {
         name: "Edge AI Cluster documentatie",
         repo: repoUrl,
-      plugins: [
-          EditOnGithubPlugin.create(editPath, null, editMsg)
-      ],
-      loadSidebar: true,
-      subMaxLevel: 3,
-      search: 'auto', // default
-      auto2top: true,
-      pagination: {
-        previousText: 'Vorige',
-        nextText: 'Volgende',
-        crossChapter: true,
-        crossChapterText: true,
-      },
-      toc: {
-        tocMaxLevel: 5,
-        target: 'h2, h3, h4, h5, h6',
-        ignoreHeaders: ['<!-- {docsify-ignore} -->', '<!-- {docsify-ignore-all} -->']
-      },
-    }
-  </script>
-  
-  
-  <script src="https://unpkg.com/@h-hg/docsify-image-caption/dist/docsify-image-caption.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-python.min.js"></script> 
-  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-systemd.min.js"></script> 
-  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-editorconfig.min.js"></script> 
-  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-bash.min.js"></script> 
-</body>
+        plugins: [EditOnGithubPlugin.create(editPath, null, editMsg)],
+        loadSidebar: true,
+        subMaxLevel: 3,
+        search: "auto", // default
+        auto2top: true,
+        pagination: {
+          previousText: "Vorige",
+          nextText: "Volgende",
+          crossChapter: true,
+          crossChapterText: false,
+        },
+        toc: {
+          tocMaxLevel: 5,
+          target: "h2, h3, h4, h5, h6",
+          ignoreHeaders: [
+            "<!-- {docsify-ignore} -->",
+            "<!-- {docsify-ignore-all} -->",
+          ],
+        },
+        // docsify-copy-code (defaults)
+        copyCode: {
+          buttonText: "Kopiëren",
+          errorText: "Error",
+          successText: "Gekopiëerd",
+        },
+      };
+    </script>
+
+    <script src="https://unpkg.com/@h-hg/docsify-image-caption/dist/docsify-image-caption.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
+    <script src="https://unpkg.com/docsify-copy-code@2"></script>
+    <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-python.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-systemd.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-editorconfig.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-bash.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-c.min.js"></script>
+  </body>
 </html>
