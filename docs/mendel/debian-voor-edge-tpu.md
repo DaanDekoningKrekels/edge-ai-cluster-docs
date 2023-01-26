@@ -2,11 +2,22 @@
 
 In dit onderdeel wordt er bekeken wat er in een Debian moet worden aangepast om op een Coral Dev Board te kunnen draaien.
 
+[![](./assets/debianhero.jpg 'Fig. 1: Debian logo. [37]')](./bronnen.md#mendel-linux)
+
 ## Device Tree Overlays van Mendel
 
 De Coral Dev Board bestaat uit een baseboard met daarop een op maat ontwikkelde SoM op basis van een NXP SoC.
 
 De Device Tree Overlays van Mendel die de hardware van de Coral Dev Board beschrijven kunnen gebruikt worden zodat het OS over de juiste beschrijvingen beschikt.
+
+### Andere aanpassingen voor hardware ondersteuning
+
+- defconfig: Include USB FTDI driver
+- defconfig: Add micro k8s / k3s deps
+- apex: Add power control
+- m4: Add M4 device tree overlay
+- i2s: Enable I2S output on 40-pin header
+- rt5645: Add a sysfs-based override for hp-detect
 
 ## Packages
 
@@ -36,6 +47,6 @@ Het Coral Dev Board werkt met een TPU op PCIe. Dit is afgeleid uit de *M.2 or Mi
 
 - Versie van de Debian 10 (buster) Linux distributie en ARMv8 systeem architectuur.
 - Python 3.6 - 3.9
-- Coral ("Apex") PCIe driver
+- Coral "Apex" PCIe driver
 - Edge TPU runtime
 - PyCoral library

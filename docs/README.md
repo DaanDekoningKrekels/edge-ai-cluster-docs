@@ -19,8 +19,8 @@ Er wordt ook effectief een cluster van vijf Coral Dev Boards gebouwd en ingestel
 
 Dit team bestaat uit:
 
-- Bavo Debraekeleer - Onderzoek Mendel en Coral Dev Board hardware
-- Daan Dekoning Krekels - Onderzoek en opstelling cluster, NFS
-- Jesse Denaux - Onderzoek en opstelling cluster, NFS
-- Tarun Singh - Onderzoek en toepassing Open-MPI
-- Jelte Boumans - Behuizing ontwerp
+- Bavo Debraekeleer - _Onderzoek Mendel en Coral Dev Board hardware_
+- Daan Dekoning Krekels - _Onderzoek en opstelling cluster, NFS_
+- Jesse Denaux - _Onderzoek en opstelling cluster, NFS_
+- Tarun Singh - _Onderzoek en toepassing Open-MPI_
+- Jelte Boumans - _Behuizing ontwerp_

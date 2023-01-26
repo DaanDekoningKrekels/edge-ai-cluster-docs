@@ -6,7 +6,7 @@ De Device Tree overlay wordt opgeslagen als een .dtb (device tree blob) code fil
 
 ### Installatie Device Tree compiler
 
-```bash
+```editorConfig
 sudo apt-get install device-tree-compiler
 ```
 
@@ -14,7 +14,7 @@ sudo apt-get install device-tree-compiler
 
 De .dtb files bevinden zich in de `"/boot"` directory.
 
-```bash
+```editorConfig
 mendel@undefined-yarn:~/share$ /boot ls
 boot.scr                 fsl-imx8mq-phanbell.dtb      Image         System.map-4.14.98-imx
 config-4.14.98-imx       fsl-imx8mq-phanbell-m4.dtbo  lost+found    u-boot.imx
@@ -23,25 +23,25 @@ fsl-imx8mm-columbia.dtb  fsl-imx8mq-yorktown.dtb      overlays.txt  vmlinuz-4.14
 
 Er bevinden zich drie .dtb files in `/root`. In één van deze moet de TPU beschreven staan.
 
-De-compileren gebeurd met volgend commando: `sudo dtc -I dtb -O dts /boot/<input-filename>.dtb -o /tmp/<output-filename>.dts` Zo komt de ge-de-compileerde code in een menselijk leesbaar .dts file in de `/temp` directory terecht [[26]](bronnen.md).
+De-compileren gebeurd met volgend commando: `sudo dtc -I dtb -O dts /boot/<input-filename>.dtb -o /tmp/<output-filename>.dts` Zo komt de ge-de-compileerde code in een menselijk leesbaar .dts file in de `/temp` directory terecht [[26]](bronnen.md#mendel-linux).
 
 Dit voor de drie files:
 
-```bash
+```editorConfig
 sudo dtc -I dtb -O dts /boot/fsl-imx8mm-columbia.dtb -o /tmp/fsl-imx8mm-columbia.dts
 ```
 
-```bash
+```editorConfig
 sudo dtc -I dtb -O dts /boot/fsl-imx8mq-phanbell.dtb -o /tmp/fsl-imx8mq-phanbell.dts
 ```
 
-```bash
+```editorConfig
 sudo dtc -I dtb -O dts /boot/fsl-imx8mq-yorktown.dtb -o /tmp/fsl-imx8mq-yorktown.dts
 ```
 
 Resultaat:
 
-```bash
+```editorConfig
 mendel@undefined-yarn:/tmp$ ls
 pulse-PKdhtXMmr18n
 systemd-private-b047b4ad188845f79678d97a41208ab6-systemd-timesyncd.service-iLofIQ
@@ -68,7 +68,7 @@ Columbia bevat geen referenties naar een TPU.
 
 In Phanbell staat de edgetpu-audio-card:
 
-```bash
+```editorConfig
 sound-rt5645 {
                 compatible = "google,edgetpu-audio-card";
                 model = "edgetpu-audio-card";
@@ -83,7 +83,7 @@ sound-rt5645 {
 
 De edgetpu-audio-card staat ook in Yorktown, maar met een andere `audio-cpu`.
 
-```bash
+```editorConfig
 sound-rt5645 {
                 compatible = "google,edgetpu-audio-card";
                 model = "edgetpu-audio-card";
@@ -98,7 +98,7 @@ sound-rt5645 {
 
 Hierop volgend staat een TPU genaamd `yorktown-tpu` bestaande uit `akira` onderdelen.
 
-```bash
+```editorConfig
 yorktown-tpu {
                 compatible = "google,yorktown-tpu";
 
@@ -200,7 +200,7 @@ yorktown-tpu {
 
 Op het einde onder `__symbols__` staat:
 
-```bash
+```editorConfig
 __symbols__ {
 				...
 				iomuxc = "/iomuxc@30330000";
@@ -247,9 +247,9 @@ Hieruit kan echter niets worden afgeleid hoe de TPU met de CPU communiceert.
 
 ### Coral Google Git referenties
 
-Deze code kan ook teruggevonden worden in de Coral repository op Google Git [[27]](bronnen.md).
+Deze code kan ook teruggevonden worden in de Coral repository op Google Git [[27]](bronnen.md#mendel-linux).
 
-```bash
+```editorConfig
 /*
  * Copyright 2018 NXP
  *
@@ -367,7 +367,7 @@ Deze code kan ook teruggevonden worden in de Coral repository op Google Git [[27
 };
 ```
 
-Op de Coral Google Git kan ook wat extra info over deze Yorktown en AKira TPU gevonden worden [[28]](bronnen.md), maar niet veel:
+Op de Coral Google Git kan ook wat extra info over deze Yorktown en AKira TPU gevonden worden [[28]](bronnen.md#mendel-linux), maar niet veel:
 
 ```google git
 Akira power management driver and Yorktown TPU "bus" driver
@@ -399,7 +399,9 @@ of the PCI bus in the future
 +
 ```
 
-In de *Accelerating Reduction and Scan Using Tensor Core Units* [[29]](bronnen.md) paper wordt vermeld dat er 8 cores zitten in de Google's TPU v3. Omdat er ook 8 Akira onderdelen zijn binnen de Yorktown TPU kunnen we afleiden dat een Akira een Core is, die dan verder nog bestaat uit 2 MXU's.
+In de *Accelerating Reduction and Scan Using Tensor Core Units* [[29]](bronnen.md#mendel-linux) paper wordt vermeld dat er 8 cores zitten in de Google's TPU v3. Omdat er ook 8 Akira onderdelen zijn binnen de Yorktown TPU kunnen we afleiden dat een Akira een Core is, die dan verder nog bestaat uit 2 MXU*'s.
+
+_*MXU = Multiplexer Unit_
 
 > 2 TENSOR CORES UNITS (TCUS) A marquee feature of NVIDIA’s GPUs (Volta’s Tesla V100 and Turning’s TU102 architectures) and Google’s TPUs are their TCUs— a programmable matrix multiply and accumulate hardware units, called Tensor Cores by NVIDIA and matrix-multiply-units (MXUs) by Google. While there are other competing TCU implementations, both NVIDIA Tensor Cores and Google’s TPU are by far the most popular. At a high level, their functionality and architectural design are similar. They both subdivide the device into cores, with each having multiple processing block (or subcores) and TCUs. Figure 1 illustrates a subcore in an NVIDIA SM, with the V100 containing 80 SMs and each having 4 subcores. In turn, each subcore contains two Tensor Cores — for a total of 640 Tensor Cores and achieve a 12× throughput improvement over previous generation Tesla P100 [54]. Google’s TPUv3 device, on the other hand, has 8 cores — 4 chips each with 2 cores — with each core having 2 MXUs.
 
@@ -407,16 +409,16 @@ In de *Accelerating Reduction and Scan Using Tensor Core Units* [[29]](bronnen.m
 
 ## System on Module (SoM)
 
-Verder onderzoek met de [datasheet van de Coral Dev Board](./assets/google-coral-dev-board-03062019-G950-01455-01-datasheet.pdf) [[31]](bronnen.md) duid aan dat de Edge TPU zich samen met de i.MX8M SoC op een System on Module (SoM) bevindt. Hiervan is nog een aparte [SoM datasheet](./assets/coral-som-datasheet.pdf) ([online](https://coral.ai/static/files/Coral-SoM-datasheet.pdf)) [[32]](bronnen.md) die ons meer info kan geven.
+Verder onderzoek met de [datasheet van de Coral Dev Board](./assets/google-coral-dev-board-03062019-G950-01455-01-datasheet.pdf) [[31]](bronnen.md#mendel-linux) duid aan dat de Edge TPU zich samen met de i.MX8M SoC op een System on Module (SoM) bevindt. Hiervan is nog een aparte [SoM datasheet](./assets/coral-som-datasheet.pdf) ([online](https://coral.ai/static/files/Coral-SoM-datasheet.pdf)) [[32]](bronnen.md#mendel-linux) die ons meer info kan geven.
 
 > The SOM is based on NXP's iMX8M system-on-chip (SOC) and contains all the essential hardware systems, including the Edge TPU and Wi-Fi/Bluetooth radios. It is attached to the Dev Board baseboard with three 100-pin board-to-board
 > connectors.
 
-*Uit Google Coral Dev Board datasheet, p21 [[31]](bronnen.md)*
+*Uit Google Coral Dev Board datasheet, p21 [[31]](bronnen.md#mendel-linux)*
 
 In volgend *Fi 1* zien we dat de Edge TPU communiceert met de SoC via PCIe2.
 
-[![](./assets/som-blockdiagram.png 'Fig 1: uit Coral SoM datahseet, p7, 1.1 Block Diagrams [32]')](bronnen.md)
+[![](./assets/som-blockdiagram.png 'Fig 1: uit Coral SoM datahseet, p7, 1.1 Block Diagrams [32]')](bronnen.md#mendel-linux)
 
 > 5.5 PCIe
 >
@@ -424,7 +426,7 @@ In volgend *Fi 1* zien we dat de Edge TPU communiceert met de SoC via PCIe2.
 > these and y ou should not remap these with your own device tree because both are used on the SoM for Wi-Fi ( PCIE1) and
 > the Edge TPU ( PCIE2).
 
-*Uit Coral SoM datahseet p16, 5 Peripheral interfaces [[32]](bronnen.md)*
+*Uit Coral SoM datahseet p16, 5 Peripheral interfaces [[32]](bronnen.md#mendel-linux)*
 
 Terug naar de Device Tree Overlay om te weten te komen hoe de CPU op de SoC communiceert met de Edge TPU via PCIe2. Dit door het zoeken naar referenties naar de **imx8mq**, en meer precies de **imx8mq-phanbell**.
 
@@ -432,7 +434,7 @@ Onderstaande referenties komen zowel in `phanbell.dts` als `yorktown.dts`  terug
 
 Bovenaan de naamgeving van de SoC, zijnde Freescale i.MX8MQ Phanbell.
 
-````bash
+````editorConfig
 compatible = "fsl,imx8mq-phanbell\0fsl,imx8mq";
         interrupt-parent = < 0x01 >;
         #address-cells = < 0x02 >;
@@ -442,7 +444,7 @@ compatible = "fsl,imx8mq-phanbell\0fsl,imx8mq";
 
 De IO MUX `iomuxc@30330000` waar de Edge TPU in voorkomt onder `imx8mq-phanbell`.
 
-````bash
+````editorConfig
 iomuxc@30330000 {
                 compatible = "fsl,imx8mq-iomuxc";
                 reg = < 0x00 0x30330000 0x00 0x10000 >;
@@ -690,7 +692,7 @@ x05 0x00 0x19 0x1a4 0x40c 0x00 0x05 0x00 0x19 0x17c 0x3e4 0x00 0x05 0x00 0x19 0x
 
 Deze komen ook terug in de `__symbols__` onderaan.
 
-````bash
+````editorConfig
 __symbols__ {
                 CPU_SLEEP = "/cpus/idle-states/cpu-sleep";
                 CLUSTER_SLEEP = "/cpus/idle-states/cluster-sleep";
@@ -916,7 +918,7 @@ Op de Coral Google repository kunnen ook de bron `.dtsi` bestanden teruggevonden
 
 In onderstaande code blokken wordt nu gekeken waar in bovenste code blok naar verwezen wordt.
 
-In */arch/arm64/boot/dts/freescale/fsl-imx8mq.dtsi* [[33]](bronnen.md) vinden we, met referentie:
+In */arch/arm64/boot/dts/freescale/fsl-imx8mq.dtsi* [[33]](bronnen.md#mendel-linux) vinden we, met referentie:
 
 > pinctrl_i2c_mux = "/iomuxc@30330000/imx8mq-phanbell/pinctrl_mux_grp";
 > pinctrl_akira01 = "/iomuxc@30330000/imx8mq-phanbell/pinctrl_akira01_grp";
@@ -924,7 +926,7 @@ In */arch/arm64/boot/dts/freescale/fsl-imx8mq.dtsi* [[33]](bronnen.md) vinden we
 > pinctrl_akira45 = "/iomuxc@30330000/imx8mq-phanbell/pinctrl_akira45_grp";
 > pinctrl_akira67 = "/iomuxc@30330000/imx8mq-phanbell/pinctrl_akira67_grp";
 
-````bash
+````editorConfig
 iomuxc: iomuxc@30330000 {
 		compatible = "fsl,imx8mq-iomuxc";
 		reg = <0x0 0x30330000 0x0 0x10000>;
@@ -933,7 +935,7 @@ iomuxc: iomuxc@30330000 {
 
 > pcie1 = "/pcie@0x33c00000";
 
-````bash
+````editorConfig
 pcie1: pcie@0x33c00000 {
 		compatible = "fsl,imx8mq-pcie", "snps,dw-pcie";
 		reg = <0x0 0x33c00000 0x0 0x400000>, <0x0 0x27f00000 0x0 0x80000>;
@@ -966,7 +968,7 @@ pcie1: pcie@0x33c00000 {
 
 > akira0 = "/i2c@30a40000/i2c-mux@70/i2c@0/gpio@43";
 
-````bash
+````editorConfig
 i2c3: i2c@30a40000 {
 		#address-cells = <1>;
 		#size-cells = <0>;
@@ -978,9 +980,9 @@ i2c3: i2c@30a40000 {
 	};
 ````
 
-In *arch/arm64/boot/dts/freescale/fsl-imx8mq-som.dtsi* [[34]](bronnen.md):
+In *arch/arm64/boot/dts/freescale/fsl-imx8mq-som.dtsi* [[34]](bronnen.md#mendel-linux):
 
-````bash
+````editorConfig
 ...
 
 &i2c3 {
@@ -1041,11 +1043,11 @@ In *arch/arm64/boot/dts/freescale/fsl-imx8mq-som.dtsi* [[34]](bronnen.md):
 
 ## Device Tree Overlays toevoegen
 
-In de Coral documentatie is een pagina [[35]](bronnen.md) voorzien over hoe eigen overlays toe te voegen. Hierdoor is de werking hiervan binnen Mendel duidelijker.
+In de Coral documentatie is een pagina [[35]](bronnen.md#mendel-linux) voorzien over hoe eigen overlays toe te voegen. Hierdoor is de werking hiervan binnen Mendel duidelijker.
 
 Uit de gegeven device tree source code kan ook bevestigd worden dat `imx8mq-phanbell` de huidige top laag is.
 
-````bash
+````editorConfig
 // Set CMA region to 512M
 /dts-v1/;
 /plugin/;
@@ -1068,7 +1070,7 @@ Uit de gegeven device tree source code kan ook bevestigd worden dat `imx8mq-phan
 
 De `/boot/overlays.txt` bevat in de onderzochte versie echter niets.
 
-````bash
+````editorConfig
 mendel@undefined-yarn:~$ cat /boot/overlays.txt
 # List of device tree overlays to load. Format: overlay=<dtbo name, no extenstion> <dtbo2> ...
 overlay=
