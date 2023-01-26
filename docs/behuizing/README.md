@@ -1,10 +1,10 @@
 # Behuizing
 
-De ontwikkeling van de behuizing heeft geresulteerd in de creatie van drie distincte versies. Elk van deze versies zullen hieronder visueel worden gepresenteerd en besproken. De overwegingen achter de keuzes die tijdens het ontwerpproces zijn gemaakt, zullen worden geanalyseerd, evenals de respectievelijke sterkte- en zwaktepunten van ieder ontwerp.
+De ontwikkeling van de behuizing heeft geresulteerd in de creatie van drie verschillende versies. Elk van deze versies zullen hieronder visueel worden gepresenteerd en besproken. De overwegingen achter de keuzes die tijdens het ontwerpproces zijn gemaakt, zullen worden geanalyseerd, evenals de respectievelijke sterkte- en zwaktepunten van ieder ontwerp.
 
 ## Iteratie 1
 
-In de vroege fase van ontwikkeling, werd de eerste iteratie van de behuizing ontworpen. Echter, in deze periode waren de vereisten voor de behuizing nog niet specifiek vastgesteld. Dit resulteerde in een eerste iteratie die substantieel afwijkt van de verdere ontwerpen en niet voldoet aan de gestelde eisen.
+In de vroege fase van ontwikkeling, werd de eerste iteratie van de behuizing ontworpen. Echter, in deze periode waren de vereisten voor de behuizing nog niet specifiek vastgesteld. Dit resulteerde in een eerste iteratie die degelijk afwijkt van de verdere ontwerpen en niet voldoet aan de gestelde eisen.
 
 Een afbeelding van deze eerste iteratie van de behuizing wordt hieronder gepresenteerd. Het opvallendste aspect van het ontwerp is de matige kwaliteit ervan, bestaande uit slechts vijf gelasercutte plaatjes waarop de TPU's zijn geplaatst.
 
