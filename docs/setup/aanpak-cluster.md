@@ -1,10 +1,10 @@
 # Aanpak cluster
 
-In het algemeen zijn er twee mogelijke opties om de Coral Dev boards in te stellen voor een Beowulf cluster. Er bestaan Linux-distributies die speciaal gemaakt zijn om te gebruiken in een Beowulf cluster. Deze Linux-distributies kunnen gecompileerd worden om te draaien op de Coral Dev boards en zo een cluster opzetten. Een andere mogelijkheid is om na te gaan welke software zoal gebruikt wordt in Beowulf clusters en deze software los installeren op Mendel Linux.
+In het algemeen zijn er twee mogelijke opties om de Coral Dev Boards in te stellen voor een Beowulf cluster. Er bestaan Linux-distributies die speciaal gemaakt zijn om te gebruiken in een Beowulf cluster. Deze Linux-distributies kunnen gecompileerd worden om te draaien op de Coral Dev boards en zo een cluster opzetten. Een andere mogelijkheid is om na te gaan welke software zoal gebruikt wordt in Beowulf clusters en deze software los installeren op Mendel Linux.
 
 ## Cluster Linux Aanpassen
 
-Een Linux distributie aanpassen die gemaakt is voor Linux is best een grote karwij. Standaard draait een Coral Dev board op Mendel Linux. Google raadt het ook af om Mendel zelf te compileren en het draaien van een andere distributie zal waarschijnlijk ook voor onnodige problemen zorgen, Mendel is echter al speciaal gemaakt om goed te werken met de TPU.
+Een Linux distributie aanpassen die gemaakt is voor Linux is best een grote karwij. Standaard draait een Coral Dev Board op Mendel Linux. Google raadt het ook af om Mendel zelf te compileren en het draaien van een andere distributie zal waarschijnlijk ook voor onnodige problemen zorgen, Mendel is echter al speciaal gemaakt om goed te werken met de TPU.
 
 > Note: we generally discourage this, as we put a great deal of effort into making sure our releases run well on the boards we target. - [What is Mendel Linux?](https://coral.googlesource.com/docs/+/refs/heads/master/ReadMe.md)
 
