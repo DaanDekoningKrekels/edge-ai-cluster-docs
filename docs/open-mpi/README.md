@@ -1,22 +1,22 @@
 # OpenMP
 
-Bij parallelle computing worden de uitvoering van de processen tegelijkertijd uitgevoerd. Grote taken of problemen kunnen opgedeeld worden in kleinere delen zodat die taken tegelijkertijd uitgevoerd kunnen worden. In ons geval maken we een clusters van Coral Dev Boards waar parallel computing voorkomt. Om deze parallel computing te doen kan er gebruikt gemaakt worden openMP of openMPI. 
+Bij parallelle computing worden verschillende processen gelijktijdig uitgevoerd. Grote taken of problemen kunnen opgedeeld worden in kleinere delen zodat die taken tegelijkertijd uitgevoerd kunnen worden. In dit geval wordt er een clusters gemaakt van Coral Dev Boards waar parallel computing voorkomt. Om deze parallel computing te doen kan er gebruikt gemaakt worden openMP of openMPI. 
 
 
-OpenMP is een application programming interface (API) die shared-memory multiprocessor kan aanspreken in C, C++ of in Fortran. Deze shared-memory multiprocessor bestaat uit meerdere procesoren die toegang hebben tot de hardware van apparaat. Deze openMP API is meer bedoeld om op één systeem de taken, op meerdere processoren te verdelen.
+OpenMP is een application programming interface (API) die shared-memory multiprocessor kan aanspreken in C, C++ of in Fortran. Deze shared-memory multiprocessor bestaat uit meerdere processoren die toegang hebben tot de hardware van het apparaat. Deze openMP API is meer bedoeld om op één systeem de taken, op meerdere processoren te verdelen.
 
-Met openMP wordt er verschillende parallelle toepassingen ontwikkeld voor platformen variërend van de standaard desktopcomputers tot supercomputer. Bij openMP wordt er ook gebruik gemaakt van multithreading. Multithreading is een methode van parallellism waarbij de primaire thread aantal andere sub-threads forkt en de taken worden dan onder deze threads verdeeld. De threads lopen dan gelijktijdig, waarbij de runtime omgeving threads toewijst aan zijn eigen processor. Het gedeelte van de code dat bedoeld is om parallel te lopen, zal eerst threads aanmaken met behulp van de compiler en dan zal de code uitgevoerd worden. Elke thread heeft een id en de primaire thread heeft een id van 0. Na de uitvoering van de geparallelleerde code worden alle threads terug samen één primaire thread. Hieronder wordt een afbeelding getoond om beter inzicht te krijgen.
+Met openMP wordt er verschillende parallelle toepassingen ontwikkeld voor platformen variërend van de standaard desktopcomputers tot supercomputers. Bij openMP wordt er ook gebruik gemaakt van multithreading. Multithreading is een methode van parallellisme waarbij de primaire thread aantal andere sub-threads forkt en de taken onder deze threads verdeeld. De threads lopen dan gelijktijdig, waarbij de runtime omgeving threads toewijst aan zijn eigen processor. Het gedeelte van de code dat bedoeld is om parallel te lopen, zal eerst threads aanmaken met behulp van de compiler en dan zal de code uitgevoerd worden. Elke thread heeft een id, de primaire thread heeft een id van 0. Na de uitvoering van de geparallelliseerde code worden alle threads terug samengevoegd één primaire thread. Hieronder wordt een afbeelding getoond om beter inzicht te krijgen.
 
 
 ![](./assets/Schema_multithreading.png 'Fig 1: Schema multithreading')
 
 # OpenMPI
 
-OpenMPI implementeert open source Message Passing Interface en wordt vooral ook gebruikt bij gedistribueerde parallelle computers. Het is een communicatieprotocol die gebruikt wordt parallel computing. In tegenstelling tot het hierboven beschreven shared-memory, maakt openMPI gebruik van verzameling van onafhankelijke memory cores die dan gesynchroniseerd worden via netwerk. Deze kunnen we meer terug vinden in clusters.
+OpenMPI implementeert open source Message Passing Interface en wordt vooral ook gebruikt bij gedistribueerde parallelle computers. Het is een communicatieprotocol dat gebruikt wordt bij parallel computing. In tegenstelling tot het hierboven beschreven shared-memory, maakt openMPI gebruik van verzameling van onafhankelijke memory cores die dan gesynchroniseerd worden via het netwerk. Deze kunnen we meer terug vinden in clusters.
 
 Dit betekent ook dat elke core (wordt ook soms node genoemd) zijn eigen geheugen heeft. Echter, de synchronisatie is ook nodig om de taken te verdelen en om resultaten te verzamelen. Al deze data wordt verzoden en verzamelt met behulp van message passing. 
 
-OpenMPI biedt ook API requests zoals MPI_Send en MPI_Rec om te kunnen communiceren tussen de verschillende nodes. In tegenstelling tot openMP, moet hier de resultaten doorgestuurd worden naar de hoofdnode in het netwek. Hieronder wordt er een diagram getoond die het verschillen tussen de openMP en openMPI verduidelijkt.
+OpenMPI biedt ook API requests zoals MPI_Send en MPI_Rec om te kunnen communiceren tussen de verschillende nodes. In tegenstelling tot openMP, moet hier de resultaten doorgestuurd worden naar de hoofdnode in het netwerk. Hieronder wordt er een diagram getoond die het verschillen tussen de openMP en openMPI verduidelijkt.
 
 ![](./assets/Verschil_openMP_en_openMPI.png 'Fig 2: Verschil tussen openMP en openMPI')
 
@@ -24,13 +24,13 @@ Beide bibliotheken implementeren dus verschillende normen voor parallel computin
 
 # MPICH
 
-MPICH wordt ook beschouwd als een van de populairste implementaties van de MPI-standaard. Hier wordt ook de MPI en de MPI libraties gebruikt voor distributed-memory applicaties aan te sturen. MPICH heeft al aantal voorgaande versies namelijk MPICH1,MPICH2 en MPICH3. MPICH1 implementeerde MPI-1 standaard. MPICH2 bevatte aantal nieuwe mogelijkheden voor communicatie, dynamische processen, uitgebreide MPI-IO functionaliteiten enzovoort. MPICH3 is momenteel de laatste versie van de MPI standaard en heeft aantal nieuwe functies bijgekregen.
+MPICH wordt ook beschouwd als een van de populairste implementaties van de MPI-standaard. Hier wordt ook de MPI en de MPI libraties gebruikt voor distributed-memory applicaties aan te sturen. MPICH heeft al aantal voorgaande versies namelijk MPICH1,MPICH2 en MPICH3. MPICH1 implementeerde de MPI-1 standaard. MPICH2 bevatte aantal nieuwe mogelijkheden voor communicatie, dynamische processen, uitgebreide MPI-IO functionaliteiten enzovoort. MPICH3 is momenteel de laatste versie van de MPI standaard en heeft aantal nieuwe functies bijgekregen.
 
 OpenMPI en MPICH werd geïnstalleerd bij alle bordjes maar enkel de MPICH werkte goed bij de Edge TPU’s. Hieronder worden de verschillende stappen beschreven die bij de installatie van de openMPI en MPICH. Deze moet op alle hosts geïnstalleerd worden.
 
 Eerst werd er geprobeerd om OpenMPI te installeren hieronder worden de genomen stappen beschreven.
 
-- Het is belangrijk dat het systeem up to date is voordat er iets geïnstalleerd wordt.
+- Het is belangrijk dat het systeem up-to-date is voordat er iets geïnstalleerd wordt.
 ``` bash 
 sudo apt-get update
 ```
@@ -42,7 +42,7 @@ sudo apt-get upgrade
  ```
 ![](./assets/upgraden_van_systeem.png 'Fig 4: Upgraden van het systeem')
 
-- De volgende commando zorgt ervoor dat de meta-pakketten die essentieel om een programma te compileren geïnstalleerd worden.
+- Het volgende commando zorgt ervoor dat de meta-pakketten die essentieel zijn om een programma te compileren geïnstalleerd worden.
 ``` bash 
 sudo apt install build-essential
 ```
@@ -83,7 +83,7 @@ mpiexec -n 4 ./hello
 ```
 ![](./assets/uitvoering_van_code.png 'Fig 10: Uitvoeren van het programma')
 
-Deze code is vooral geschreven in C, maar omdat de TPU’s gebruik maakt van Tensorflow die modelen die meestal in Python gescreven worden, is het best dat er hier ook gebruikt gemaakt wordt van Python.
+Deze code is vooral geschreven in C, maar omdat de TPU’s gebruik maken van TensorFlow modellen die meestal in Python geschreven worden, is het best dat er hier ook gebruikt gemaakt wordt van Python.
 
 - Installeren van Python3 environment.
 ``` bash 
@@ -117,7 +117,7 @@ Bij het uitvoeren van de programma’s kwamen er aantal errors opdagen. Na verde
 
 Er werd alles gedaan om deze soort errors weg te werken, maar helaas was het niet zo zeer gelukt. Na het bespreken met andere teamgenoten werd er beslist om MPICH3 te installeren en daarmee verder te gaan.
 
-Zoals eerder vermeld is deze ook een andere versie van openMP en kan gebruikt worden om de taken te verdelen tussen verschillende nodes/TPU's. Daarnaast werkt deze versie ook veel beter met Python scripts. Hieronder staan de genomen stappen om de installatie van de MPICH te voltooien. Daarnaast wordt de MPICH vanuit de source code geïnstalleerd. Dit betekent dat er geen package manager gebruikt wordt en de sourcecode wordt dan op de TPU gecompileerd.
+Zoals eerder vermeld is deze ook een andere versie van openMP en kan deze gebruikt worden om de taken te verdelen tussen verschillende nodes/TPU's. Daarnaast werkt deze versie ook veel beter met Python scripts. Hieronder staan de genomen stappen om de installatie van de MPICH te voltooien. Daarnaast wordt de MPICH vanuit de source code geïnstalleerd. Dit betekent dat er geen package manager gebruikt wordt en de source code wordt dan op de TPU gecompileerd.
 
 - Als eerst wordt de zip file van de MPICH3 geïnstalleerd met de volgende commando.
 
@@ -204,4 +204,4 @@ mpiexec -n 2 -H 192.168.88.11,192.168.88.12,192.168.88.13,192.168.88.14,192.168.
 
 # Problemen
 
-De MPICH kon de programma’s op de andere nodes starten, maar het programma werd niet verdeeld tussen de verschillende nodes en voerde gewoon de volledige programma uit. De programma’s die getest werden, hebben gebruik gemaakt van de CPU en niet van TPU. Dit betekent dat er nog verder een manier gezocht moet om met de programma’s de TPU van de Coral Dev board aan te spreken. Ook moest er nog getest worden dat de MPI toegankelijk was via de NFS. Dit moest nog veder afgewerkt worden, maar wegens tijdsgebrek was het niet meer mogelijk. 
+MPICH kon de programma’s op de andere nodes starten, maar het programma werd niet verdeeld tussen de verschillende nodes en voerde gewoon de volledige programma uit. De programma’s die getest werden, hebben gebruik gemaakt van de CPU en niet van TPU. Dit betekent dat er nog verder een manier gezocht moet worden om met de programma’s de TPU van de Coral Dev board aan te spreken. Ook moest er nog getest worden hoe MPI toegankelijk is via NFS. Dit moest nog veder afgewerkt worden, maar wegens tijdgebrek was het niet meer mogelijk. 

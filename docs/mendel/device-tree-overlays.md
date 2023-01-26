@@ -6,7 +6,7 @@ De Device Tree overlay wordt opgeslagen als een .dtb (device tree blob) code fil
 
 ### Installatie Device Tree compiler
 
-```editorConfig
+```bash
 sudo apt-get install device-tree-compiler
 ```
 
@@ -14,7 +14,7 @@ sudo apt-get install device-tree-compiler
 
 De .dtb files bevinden zich in de `"/boot"` directory.
 
-```editorConfig
+```bash
 mendel@undefined-yarn:~/share$ /boot ls
 boot.scr                 fsl-imx8mq-phanbell.dtb      Image         System.map-4.14.98-imx
 config-4.14.98-imx       fsl-imx8mq-phanbell-m4.dtbo  lost+found    u-boot.imx
@@ -27,21 +27,21 @@ De-compileren gebeurd met volgend commando: `sudo dtc -I dtb -O dts /boot/<input
 
 Dit voor de drie files:
 
-```editorConfig
+```bash
 sudo dtc -I dtb -O dts /boot/fsl-imx8mm-columbia.dtb -o /tmp/fsl-imx8mm-columbia.dts
 ```
 
-```editorConfig
+```bash
 sudo dtc -I dtb -O dts /boot/fsl-imx8mq-phanbell.dtb -o /tmp/fsl-imx8mq-phanbell.dts
 ```
 
-```editorConfig
+```bash
 sudo dtc -I dtb -O dts /boot/fsl-imx8mq-yorktown.dtb -o /tmp/fsl-imx8mq-yorktown.dts
 ```
 
 Resultaat:
 
-```editorConfig
+```bash
 mendel@undefined-yarn:/tmp$ ls
 pulse-PKdhtXMmr18n
 systemd-private-b047b4ad188845f79678d97a41208ab6-systemd-timesyncd.service-iLofIQ
@@ -68,7 +68,7 @@ Columbia bevat geen referenties naar een TPU.
 
 In Phanbell staat de edgetpu-audio-card:
 
-```editorConfig
+```editorconfig
 sound-rt5645 {
                 compatible = "google,edgetpu-audio-card";
                 model = "edgetpu-audio-card";
@@ -83,7 +83,7 @@ sound-rt5645 {
 
 De edgetpu-audio-card staat ook in Yorktown, maar met een andere `audio-cpu`.
 
-```editorConfig
+```editorconfig
 sound-rt5645 {
                 compatible = "google,edgetpu-audio-card";
                 model = "edgetpu-audio-card";
@@ -98,7 +98,7 @@ sound-rt5645 {
 
 Hierop volgend staat een TPU genaamd `yorktown-tpu` bestaande uit `akira` onderdelen.
 
-```editorConfig
+```editorconfig
 yorktown-tpu {
                 compatible = "google,yorktown-tpu";
 
@@ -200,7 +200,7 @@ yorktown-tpu {
 
 Op het einde onder `__symbols__` staat:
 
-```editorConfig
+```editorconfig
 __symbols__ {
 				...
 				iomuxc = "/iomuxc@30330000";
@@ -249,7 +249,7 @@ Hieruit kan echter niets worden afgeleid hoe de TPU met de CPU communiceert.
 
 Deze code kan ook teruggevonden worden in de Coral repository op Google Git [[27]](bronnen.md#mendel-linux).
 
-```editorConfig
+```editorconfig
 /*
  * Copyright 2018 NXP
  *
@@ -434,7 +434,7 @@ Onderstaande referenties komen zowel in `phanbell.dts` als `yorktown.dts`  terug
 
 Bovenaan de naamgeving van de SoC, zijnde Freescale i.MX8MQ Phanbell.
 
-````editorConfig
+````editorconfig
 compatible = "fsl,imx8mq-phanbell\0fsl,imx8mq";
         interrupt-parent = < 0x01 >;
         #address-cells = < 0x02 >;
@@ -444,7 +444,7 @@ compatible = "fsl,imx8mq-phanbell\0fsl,imx8mq";
 
 De IO MUX `iomuxc@30330000` waar de Edge TPU in voorkomt onder `imx8mq-phanbell`.
 
-````editorConfig
+````editorconfig
 iomuxc@30330000 {
                 compatible = "fsl,imx8mq-iomuxc";
                 reg = < 0x00 0x30330000 0x00 0x10000 >;
@@ -692,7 +692,7 @@ x05 0x00 0x19 0x1a4 0x40c 0x00 0x05 0x00 0x19 0x17c 0x3e4 0x00 0x05 0x00 0x19 0x
 
 Deze komen ook terug in de `__symbols__` onderaan.
 
-````editorConfig
+````editorconfig
 __symbols__ {
                 CPU_SLEEP = "/cpus/idle-states/cpu-sleep";
                 CLUSTER_SLEEP = "/cpus/idle-states/cluster-sleep";
@@ -926,7 +926,7 @@ In */arch/arm64/boot/dts/freescale/fsl-imx8mq.dtsi* [[33]](bronnen.md#mendel-lin
 > pinctrl_akira45 = "/iomuxc@30330000/imx8mq-phanbell/pinctrl_akira45_grp";
 > pinctrl_akira67 = "/iomuxc@30330000/imx8mq-phanbell/pinctrl_akira67_grp";
 
-````editorConfig
+````editorconfig
 iomuxc: iomuxc@30330000 {
 		compatible = "fsl,imx8mq-iomuxc";
 		reg = <0x0 0x30330000 0x0 0x10000>;
@@ -935,7 +935,7 @@ iomuxc: iomuxc@30330000 {
 
 > pcie1 = "/pcie@0x33c00000";
 
-````editorConfig
+````editorconfig
 pcie1: pcie@0x33c00000 {
 		compatible = "fsl,imx8mq-pcie", "snps,dw-pcie";
 		reg = <0x0 0x33c00000 0x0 0x400000>, <0x0 0x27f00000 0x0 0x80000>;
@@ -968,7 +968,7 @@ pcie1: pcie@0x33c00000 {
 
 > akira0 = "/i2c@30a40000/i2c-mux@70/i2c@0/gpio@43";
 
-````editorConfig
+````editorconfig
 i2c3: i2c@30a40000 {
 		#address-cells = <1>;
 		#size-cells = <0>;
@@ -982,7 +982,7 @@ i2c3: i2c@30a40000 {
 
 In *arch/arm64/boot/dts/freescale/fsl-imx8mq-som.dtsi* [[34]](bronnen.md#mendel-linux):
 
-````editorConfig
+````editorconfig
 ...
 
 &i2c3 {
@@ -1047,7 +1047,7 @@ In de Coral documentatie is een pagina [[35]](bronnen.md#mendel-linux) voorzien 
 
 Uit de gegeven device tree source code kan ook bevestigd worden dat `imx8mq-phanbell` de huidige top laag is.
 
-````editorConfig
+````editorconfig
 // Set CMA region to 512M
 /dts-v1/;
 /plugin/;
@@ -1070,7 +1070,7 @@ Uit de gegeven device tree source code kan ook bevestigd worden dat `imx8mq-phan
 
 De `/boot/overlays.txt` bevat in de onderzochte versie echter niets.
 
-````editorConfig
+````bash
 mendel@undefined-yarn:~$ cat /boot/overlays.txt
 # List of device tree overlays to load. Format: overlay=<dtbo name, no extenstion> <dtbo2> ...
 overlay=
